@@ -413,3 +413,73 @@ function initScrollProgress() {
         progressBar.style.width = scrolled + '%';
     });
 }
+// Enhanced FAQ functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const summary = item.querySelector('summary');
+        
+        // Add keyboard navigation
+        summary.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleFAQ(item);
+            }
+            
+            // Arrow key navigation between FAQs
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                const nextItem = item.nextElementSibling;
+                if (nextItem && nextItem.classList.contains('faq-item')) {
+                    nextItem.querySelector('summary').focus();
+                }
+            }
+            
+            if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                const prevItem = item.previousElementSibling;
+                if (prevItem && prevItem.classList.contains('faq-item')) {
+                    prevItem.querySelector('summary').focus();
+                }
+            }
+        });
+        
+        // Close other FAQs when one is opened (optional)
+        item.addEventListener('toggle', function() {
+            if (item.open) {
+                // Uncomment the following line if you want only one FAQ open at a time
+                // closeOtherFAQs(item);
+            }
+        });
+    });
+    
+    function toggleFAQ(faqItem) {
+        faqItem.open = !faqItem.open;
+    }
+    
+    function closeOtherFAQs(currentItem) {
+        faqItems.forEach(item => {
+            if (item !== currentItem && item.open) {
+                item.open = false;
+            }
+        });
+    }
+    
+    // Add intersection observer for scroll animations
+    if ('IntersectionObserver' in window) {
+        const faqObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    faqObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        faqItems.forEach(item => {
+            item.style.animationPlayState = 'paused';
+            faqObserver.observe(item);
+        });
+    }
+});
