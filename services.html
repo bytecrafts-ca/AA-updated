@@ -1,234 +1,254 @@
+<!-- services.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | Diamond Detailz</title>
+    <title>Services | aa-automods</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">DIAMOND DETAILZ</a>
+        <div class="nav-container container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">aa-automods</span>
+                <span class="logo-sub">precision automotive</span>
+            </a>
             
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            
-            <div class="nav-right">
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/diamonddetailz/" aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-number">01</span>
+                        <span class="nav-text">Home</span>
                     </a>
-                    <a href="https://www.instagram.com/diamond__detailz/?hl=en" aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
+                    <a href="services.html" class="nav-link active">
+                        <span class="nav-number">02</span>
+                        <span class="nav-text">Services</span>
+                    </a>
+                    <a href="gallery.html" class="nav-link">
+                        <span class="nav-number">03</span>
+                        <span class="nav-text">Gallery</span>
+                    </a>
+                    <a href="contact.html" class="nav-link">
+                        <span class="nav-number">04</span>
+                        <span class="nav-text">Contact</span>
                     </a>
                 </div>
                 
-                <div class="phone-number">
-                    <span class="phone-label">Call Us (647) 926-4720</span>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn-nav">
+                        <span>Get Quote</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+            
+            <button class="mobile-toggle">
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay">
-        <div class="mobile-menu-content">
-            <div class="mobile-menu-header">
-                <div class="mobile-logo">DIAMOND DETAILZ</div>
-                <button class="mobile-menu-close" aria-label="Close mobile menu">
-                    <span class="close-line"></span>
-                    <span class="close-line"></span>
-                </button>
+    <main>
+        <section class="hero">
+            <div class="hero-background">
+                <div class="hero-video">
+                    <div class="video-placeholder" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                        url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2022') center/cover"></div>
+                </div>
+                <div class="hero-overlay"></div>
             </div>
             
-            <nav class="mobile-nav">
-                <ul class="mobile-nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                
-                <div class="mobile-contact">
-                    <div class="mobile-phone">
-                        <span class="phone-label">Call Us</span>
-                        <a href="tel:(647)926-4720">(647) 926-4720</a>
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <div class="hero-subtitle">
+                        <span class="subtitle-line"></span>
+                        <span>OUR SERVICES</span>
                     </div>
                     
-                    <div class="mobile-social">
-                        <a href="https://www.facebook.com/diamonddetailz/" aria-label="Facebook">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-                        <a href="https://www.instagram.com/diamond__detailz/?hl=en" aria-label="Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line">Comprehensive</span>
+                        <span class="title-line">Automotive Solutions</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        From precision tuning to complete custom builds, we offer a full spectrum 
+                        of automotive modification services executed with expert craftsmanship.
+                    </p>
                 </div>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Page Content -->
-    <main class="page-content">
-        <!-- Services Header -->
-        <section class="services" style="padding-top: 8rem; padding-bottom: 4rem;">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">OUR SERVICES</div>
-                    <h2 class="section-title">Premium Detailing Packages</h2>
-                    <p class="section-description">We offer a comprehensive range of automotive services to suit every need and budget. From paint protection films to ceramic coatings and window tinting, each service is performed with meticulous attention to detail using only the finest products.</p>                </div>
             </div>
         </section>
 
-        <!-- All Services -->
-        <section class="services" style="padding-top: 0; padding-bottom: 6rem;">
+        <section class="services-preview">
             <div class="container">
+                <div class="section-header">
+                    <div class="header-left">
+                        <div class="section-label">
+                            <span class="label-line"></span>
+                            <span>COMPLETE SERVICE LIST</span>
+                        </div>
+                        <h2 class="section-title">Our Full Range of<br>Automotive Services</h2>
+                    </div>
+                    <div class="header-right">
+                        <p class="section-description">
+                            Each service is performed with meticulous attention to detail, 
+                            using state-of-the-art equipment and premium materials.
+                        </p>
+                    </div>
+                </div>
+                
                 <div class="services-grid">
-                    <div class="service-card has-image">
-                        <div class="service-card-image" style="background-image: url('https://images.unsplash.com/photo-1680005138889-4ad5829304cd?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"></div>
-                        <div class="service-icon">EW</div>
-                        <div class="service-card-content">
-                            <h3>Paint Protection Film</h3>
-                            <p>A nearly invisible shield that protects your paint from stone chips, scratches, and road debris while keeping your car looking brand new.</p>
-                            <div class="service-price">Starting at $900</div>
+                    <div class="service-card" id="tuning">
+                        <div class="service-icon">
+                            <i class="fas fa-microchip"></i>
                         </div>
+                        <h3 class="service-title">Performance Tuning</h3>
+                        <p class="service-description">
+                            Advanced ECU remapping, exhaust system optimization, suspension calibration, 
+                            turbocharger upgrades, and drivetrain enhancements for maximum performance.
+                        </p>
+                        <ul class="service-features">
+                            <li>ECU Remapping & Dyno Tuning</li>
+                            <li>Exhaust System Optimization</li>
+                            <li>Suspension & Brake Upgrades</li>
+                            <li>Forced Induction Systems</li>
+                            <li>Transmission & Drivetrain</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">
+                            <span>Get Quote for Tuning</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-
-                    <div class="service-card has-image">
-                        <div class="service-card-image" style="background-image: url('https://st4.depositphotos.com/16677798/20967/i/450/depositphotos_209679112-stock-photo-car-wrapping-specialist-putting-vinyl.jpg')"></div>
-                        <div class="service-icon">EW</div>
-                        <div class="service-card-content">
-                            <h3>Vinly Wrap</h3>
-                            <p>Transform your vehicle’s look with custom colors and finishes while adding a layer of protection to your factory paint..</p>
-                            <div class="service-price">Starting at $3000</div>
+                    
+                    <div class="service-card" id="custom">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
                         </div>
+                        <h3 class="service-title">Custom Builds</h3>
+                        <p class="service-description">
+                            Complete vehicle transformations including widebody conversions, 
+                            custom fabrication, bespoke interiors, and full restorations.
+                        </p>
+                        <ul class="service-features">
+                            <li>Widebody & Custom Fabrication</li>
+                            <li>Complete Vehicle Restorations</li>
+                            <li>Bespoke Interior Design</li>
+                            <li>Custom Paint & Wraps</li>
+                            <li>Concept to Completion Builds</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">
+                            <span>Start Your Build</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-
-                    <div class="service-card has-image">
-                        <div class="service-card-image" style="background-image: url('https://st4.depositphotos.com/1353074/38595/i/450/depositphotos_385950346-stock-photo-man-worker-of-car-detailing.jpg')"></div>
-                        <div class="service-icon">EW</div>
-                        <div class="service-card-content">
-                            <h3>Ceramic Coating</h3>
-                            <p>A long-lasting ceramic coating that provides superior gloss, chemical resistance, and easy maintenance.Long-lasting protection that creates a hydrophobic barrier, making your car easier to clean while boosting gloss and depth.</p>
-                            <div class="service-price">Starting at $600</div>
+                    
+                    <div class="service-card" id="detailing">
+                        <div class="service-icon">
+                            <i class="fas fa-spray-can"></i>
                         </div>
-                    </div>
-
-                    <div class="service-card has-image">
-                        <div class="service-card-image" style="background-image: url('https://st5.depositphotos.com/2572561/73261/i/450/depositphotos_732612032-stock-photo-specialist-professional-car-cleaning-detailing.jpg')"></div>
-                        <div class="service-icon">EW</div>
-                        <div class="service-card-content">
-                            <h3>Car Detailing</h3>
-                            <p>A comprehensive detailing service that includes a thorough hand wash, clay bar treatment, light polish, and spray wax to restore your vehicle’s shine and protect its paint.Complete deep cleaning of your vehicle inside and out, restoring shine, freshness, and that “like-new” feeling.</p>
-                            <div class="service-price">Starting at $80</div>
-                        </div>
-                    </div>
-
-                    <div class="service-card has-image">
-                        <div class="service-card-image" style="background-image: url('https://st3.depositphotos.com/7484148/16177/i/450/depositphotos_161779392-stock-photo-car-window-tinting-series-installing.jpg')"></div>
-                        <div class="service-icon">EW</div>
-                        <div class="service-card-content">
-                            <h3>Window Tinting</h3>
-                            <p>Reduce glare, block UV rays, and enhance privacy while giving your vehicle a sleek, stylish finish.</p>
-                            <div class="service-price">Starting at $150</div>
-                        </div>
-                    </div>
-                    <div class="service-card has-image">
-                        <div class="service-card-image" style="background-image: url('https://st5.depositphotos.com/9378882/81220/i/450/depositphotos_812209502-stock-photo-professional-car-detailer-using-orbital.jpg')"></div>
-                        <div class="service-icon">EW</div>
-                        <div class="service-card-content">
-                            <h3>Paint Correction</h3>
-                            <p>Professional paint correction to remove swirls, scratches, and oxidation, restoring your vehicle's original shine.</p>
-                            <div class="service-price">Starting at $400</div>
-                        </div>
+                        <h3 class="service-title">Detailing & Protection</h3>
+                        <p class="service-description">
+                            Premium ceramic coatings, paint correction, interior restoration, 
+                            and protective films using industry-leading products and techniques.
+                        </p>
+                        <ul class="service-features">
+                            <li>Ceramic & Graphene Coatings</li>
+                            <li>Paint Correction & Polishing</li>
+                            <li>Interior Deep Cleaning</li>
+                            <li>PPF Installation</li>
+                            <li>Engine Bay Detailing</li>
+                        </ul>
+                        <a href="contact.html" class="service-link">
+                            <span>Schedule Detailing</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Process Section -->
-        <section class="about" style="padding-top: 0; padding-bottom: 6rem;">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">OUR PROCESS</div>
-                    <h2 class="section-title">How We Work</h2>
-                    <p class="section-description">Every detailing project follows our meticulous process to ensure exceptional results.</p>
-                </div>
-
-                <div class="about-content">
-                    <div class="about-text">
-                        <div class="process-steps">
-                            <div class="process-step">
-                                <h3>1. Consultation & Inspection</h3>
-                                <p>We begin with a thorough inspection of your vehicle and discuss your goals to recommend the perfect service package.</p>
-                            </div>
-                            <div class="process-step">
-                                <h3>2. Preparation</h3>
-                                <p>Your vehicle is carefully prepared with a pre-wash, decontamination, and thorough cleaning to ensure optimal results.</p>
-                            </div>
-                            <div class="process-step">
-                                <h3>3. Installation Process</h3>
-                                <p>Our skilled technicians perform the selected services with precision and attention to every detail.</p>
-                            </div>
-                            <div class="process-step">
-                                <h3>4. Quality Control</h3>
-                                <p>Every vehicle undergoes a rigorous quality inspection to ensure it meets our high standards.</p>
-                            </div>
-                            <div class="process-step">
-                                <h3>5. Delivery & Aftercare</h3>
-                                <p>We walk you through the work performed and provide detailed aftercare instructions to maintain the results.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-image">
-                        <div class="placeholder-image">Detailing Process</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="stats" style="text-align: center;">
-            <div class="container">
-                <h2 class="section-title" style="margin-bottom: 2rem;">Ready to Transform Your Vehicle?</h2>
-                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 2.5rem;">Book your appointment today and experience the Diamond Detailz difference.</p>
-                <a href="contact.html" class="btn-primary">Schedule Your Detail</a>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (same as index.html) -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">DIAMOND DETAILZ</div>
-            <p>© 2025 Diamond Detailz. All rights reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">aa-automods</a>
+                    <p class="footer-description">
+                        Premium automotive modifications and custom builds with unparalleled 
+                        craftsmanship and attention to detail.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#tuning">Performance Tuning</a></li>
+                        <li><a href="services.html#custom">Custom Builds</a></li>
+                        <li><a href="services.html#detailing">Detailing</a></li>
+                        <li><a href="services.html">View All</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Performance Avenue,<br>Motor City, MC 12345</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@aa-automods.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2024 aa-automods. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
