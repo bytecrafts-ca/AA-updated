@@ -105,3 +105,69 @@ window.addEventListener('load', () => {
         card.style.animationDelay = `${index * 0.1}s`;
     });
 });
+// In main.js - ensure proper mobile toggle initialization
+const mobileToggles = document.querySelectorAll('.mobile-toggle');
+mobileToggles.forEach(toggle => {
+    if (toggle.children.length === 2) {
+        // Add missing third line
+        const thirdLine = document.createElement('span');
+        thirdLine.className = 'toggle-line';
+        toggle.appendChild(thirdLine);
+    }
+});
+
+// Modal functionality
+const modalTriggers = document.querySelectorAll('.modal-trigger');
+const modals = document.querySelectorAll('.modal');
+const modalCloses = document.querySelectorAll('.modal-close');
+const modalOverlays = document.querySelectorAll('.modal-overlay');
+
+// Open modal
+modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modalId = trigger.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+// Close modal functions
+function closeModal(modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close on close button click
+modalCloses.forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+        const modal = closeBtn.closest('.modal');
+        if (modal) {
+            closeModal(modal);
+        }
+    });
+});
+
+// Close on overlay click
+modalOverlays.forEach(overlay => {
+    overlay.addEventListener('click', () => {
+        const modal = overlay.closest('.modal');
+        if (modal) {
+            closeModal(modal);
+        }
+    });
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        modals.forEach(modal => {
+            if (modal.classList.contains('active')) {
+                closeModal(modal);
+            }
+        });
+    }
+});

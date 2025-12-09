@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | aa-automods</title>
+    <title>Services | A&A AutoMods</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,8 +13,8 @@
     <nav class="navbar">
         <div class="nav-container container">
             <a href="index.html" class="logo">
-                <span class="logo-text">aa-automods</span>
-                <span class="logo-sub">precision automotive</span>
+                <span class="logo-text">A&A AutoMods</span>
+                <span class="logo-sub">Toronto's #1 Car Customization Shop</span>
             </a>
             
             <div class="nav-menu">
@@ -71,13 +71,12 @@
                     </div>
                     
                     <h1 class="hero-title">
-                        <span class="title-line">Comprehensive</span>
-                        <span class="title-line">Automotive Solutions</span>
+                        <span class="title-line">Our Premium</span>
+                        <span class="title-line">Services</span>
                     </h1>
                     
                     <p class="hero-description">
-                        From precision tuning to complete custom builds, we offer a full spectrum 
-                        of automotive modification services executed with expert craftsmanship.
+                        We specialize in premium automotive customizations that elevate your vehicle from ordinary to extraordinary with stunning visual effects and luxury upgrades.
                     </p>
                 </div>
             </div>
@@ -102,70 +101,127 @@
                 </div>
                 
                 <div class="services-grid">
-                    <div class="service-card" id="tuning">
+                    <div class="service-card" id="star-headliner">
                         <div class="service-icon">
-                            <i class="fas fa-microchip"></i>
+                            <i class="fas fa-star"></i>
                         </div>
-                        <h3 class="service-title">Performance Tuning</h3>
+                        <h3 class="service-title">Star Headliner</h3>
                         <p class="service-description">
-                            Advanced ECU remapping, exhaust system optimization, suspension calibration, 
-                            turbocharger upgrades, and drivetrain enhancements for maximum performance.
+                            Transform your car's interior with a breathtaking fiber optic starlight headliner that mimics the night sky, with customizable colors and patterns.
                         </p>
-                        <ul class="service-features">
-                            <li>ECU Remapping & Dyno Tuning</li>
-                            <li>Exhaust System Optimization</li>
-                            <li>Suspension & Brake Upgrades</li>
-                            <li>Forced Induction Systems</li>
-                            <li>Transmission & Drivetrain</li>
-                        </ul>
-                        <a href="contact.html" class="service-link">
-                            <span>Get Quote for Tuning</span>
+                        <button class="service-link modal-trigger" data-modal="star-headliner-modal">
+                            <span>View Pricing</span>
                             <i class="fas fa-arrow-right"></i>
-                        </a>
+                        </button>
                     </div>
                     
-                    <div class="service-card" id="custom">
+                    <div class="service-card" id="ambient-lighting">
                         <div class="service-icon">
-                            <i class="fas fa-tools"></i>
+                            <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3 class="service-title">Custom Builds</h3>
+                        <h3 class="service-title">Ambient Lighting</h3>
                         <p class="service-description">
-                            Complete vehicle transformations including widebody conversions, 
-                            custom fabrication, bespoke interiors, and full restorations.
+                            Create the perfect mood with our custom ambient lighting solutions, featuring RGB LED systems with smartphone control and music synchronization.
                         </p>
-                        <ul class="service-features">
-                            <li>Widebody & Custom Fabrication</li>
-                            <li>Complete Vehicle Restorations</li>
-                            <li>Bespoke Interior Design</li>
-                            <li>Custom Paint & Wraps</li>
-                            <li>Concept to Completion Builds</li>
-                        </ul>
-                        <a href="contact.html" class="service-link">
-                            <span>Start Your Build</span>
+                        <button class="service-link modal-trigger" data-modal="ambient-lighting-modal">
+                            <span>View Pricing</span>
                             <i class="fas fa-arrow-right"></i>
-                        </a>
+                        </button>
                     </div>
                     
-                    <div class="service-card" id="detailing">
+                    <div class="service-card" id="underglow">
                         <div class="service-icon">
-                            <i class="fas fa-spray-can"></i>
+                            <i class="fas fa-car-side"></i>
                         </div>
-                        <h3 class="service-title">Detailing & Protection</h3>
+                        <h3 class="service-title">Underglow</h3>
                         <p class="service-description">
-                            Premium ceramic coatings, paint correction, interior restoration, 
-                            and protective films using industry-leading products and techniques.
+                            Give your ride a bold, eye-catching look with our premium underglow installation service! We offer vibrant, customizable LED lighting that enhances your vehicle's style while improving visibility at night.
                         </p>
-                        <ul class="service-features">
-                            <li>Ceramic & Graphene Coatings</li>
-                            <li>Paint Correction & Polishing</li>
-                            <li>Interior Deep Cleaning</li>
-                            <li>PPF Installation</li>
-                            <li>Engine Bay Detailing</li>
-                        </ul>
-                        <a href="contact.html" class="service-link">
-                            <span>Schedule Detailing</span>
+                        <button class="service-link modal-trigger" data-modal="underglow-modal">
+                            <span>View Pricing</span>
                             <i class="fas fa-arrow-right"></i>
-                        </a>
+                        </button>
+                    </div>
+                    
+                    <div class="service-card" id="emergency-lighting">
+                        <div class="service-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="service-title">Emergency Lighting</h3>
+                        <p class="service-description">
+                            Stay visible and safe with our professional emergency lighting installation service. We provide high-quality, reliable LED lighting for emergency vehicles, ensuring maximum visibility in any situation.
+                        </p>
+                        <button class="service-link modal-trigger" data-modal="emergency-lighting-modal">
+                            <span>View Pricing</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="additional-services">
+                    <div class="section-label">
+                        <span class="label-line"></span>
+                        <span>ADDITIONAL SERVICES</span>
+                    </div>
+                    <h2 class="section-title">We Also Offer</h2>
+                    <p class="section-description">
+                        Contact us to learn more about our additional services and custom solutions.
+                    </p>
+                    <div class="small-services-grid">
+                        <div class="small-service-card">
+                            <div class="small-service-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <h4 class="small-service-title">Remote Starter</h4>
+                            <p class="small-service-description">
+                                Start your vehicle from a distance with our professional remote starter installation.
+                            </p>
+                            <a href="contact.html" class="small-service-link">Contact Us</a>
+                        </div>
+                        
+                        <div class="small-service-card">
+                            <div class="small-service-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h4 class="small-service-title">Backup Camera</h4>
+                            <p class="small-service-description">
+                                Enhance your vehicle's safety with our professional backup camera installation.
+                            </p>
+                            <a href="contact.html" class="small-service-link">Contact Us</a>
+                        </div>
+                        
+                        <div class="small-service-card">
+                            <div class="small-service-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h4 class="small-service-title">Dash Camera</h4>
+                            <p class="small-service-description">
+                                Protect yourself on the road with our professional dash camera installation.
+                            </p>
+                            <a href="contact.html" class="small-service-link">Contact Us</a>
+                        </div>
+                        
+                        <div class="small-service-card">
+                            <div class="small-service-icon">
+                                <i class="fas fa-tablet-alt"></i>
+                            </div>
+                            <h4 class="small-service-title">Infotainment</h4>
+                            <p class="small-service-description">
+                                Upgrade your vehicle's entertainment system with our professional infotainment installation.
+                            </p>
+                            <a href="contact.html" class="small-service-link">Contact Us</a>
+                        </div>
+                        
+                        <div class="small-service-card">
+                            <div class="small-service-icon">
+                                <i class="fas fa-spray-can"></i>
+                            </div>
+                            <h4 class="small-service-title">Detailing</h4>
+                            <p class="small-service-description">
+                                Keep your vehicle looking its best with our professional detailing services.
+                            </p>
+                            <a href="contact.html" class="small-service-link">Contact Us</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -177,10 +233,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="index.html" class="footer-logo">aa-automods</a>
+                    <a href="index.html" class="footer-logo">A&A AutoMods</a>
                     <p class="footer-description">
-                        Premium automotive modifications and custom builds with unparalleled 
-                        craftsmanship and attention to detail.
+                        A&A AutoMods specializes in high-end automotive customizations with a focus on lighting and interior transformations.
                     </p>
                     <div class="social-links">
                         <a href="#" class="social-link">
@@ -211,9 +266,10 @@
                 <div class="footer-col">
                     <h3 class="footer-title">Services</h3>
                     <ul class="footer-links">
-                        <li><a href="services.html#tuning">Performance Tuning</a></li>
-                        <li><a href="services.html#custom">Custom Builds</a></li>
-                        <li><a href="services.html#detailing">Detailing</a></li>
+                        <li><a href="services.html#star-headliner">Star Headliner</a></li>
+                        <li><a href="services.html#ambient-lighting">Ambient Lighting</a></li>
+                        <li><a href="services.html#underglow">Underglow</a></li>
+                        <li><a href="services.html#emergency-lighting">Emergency Lighting</a></li>
                         <li><a href="services.html">View All</a></li>
                     </ul>
                 </div>
@@ -223,15 +279,15 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>123 Performance Avenue,<br>Motor City, MC 12345</span>
+                            <span>190 Creditstone Rd Units 2&3<br>Vaughan, ON L4K 1R9<br>Canada</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>(555) 123-4567</span>
+                            <span>(647) 677-7287</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>info@aa-automods.com</span>
+                            <span>Anthony.aalighting@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -239,7 +295,7 @@
             
             <div class="footer-bottom">
                 <div class="copyright">
-                    &copy; 2024 aa-automods. All rights reserved.
+                    &copy; 2025 A&A AutoMods. All rights reserved.
                 </div>
                 <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>
@@ -248,6 +304,273 @@
             </div>
         </div>
     </footer>
+
+    <!-- Pricing Modals -->
+    <!-- Star Headliner Modal -->
+    <div class="modal" id="star-headliner-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content pricing-modal">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h2 class="modal-title">Star Headliner Pricing</h2>
+                <div class="sale-badge">
+                    <span>Up to 20% OFF</span>
+                    <p>Limited time offer - Sale ends August 15, 2025</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">
+                    Transform your car's interior with a breathtaking fiber optic starlight headliner that mimics the night sky, with customizable colors and patterns.
+                </p>
+                <div class="pricing-packages">
+                    <div class="pricing-package">
+                        <h4 class="package-title">Basic Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$540+</span>
+                            <span class="old-price">$600+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> 300 Twinkling Stars</li>
+                            <li><i class="fas fa-check"></i> Multi-Color Design</li>
+                            <li><i class="fas fa-check"></i> App control</li>
+                            <li><i class="fas fa-check"></i> Color Modes</li>
+                            <li><i class="fas fa-check"></i> Animation Patterns</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-package popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <h4 class="package-title">Advanced Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$690+</span>
+                            <span class="old-price">$695+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> 450 Twinkling Stars</li>
+                            <li><i class="fas fa-check"></i> Multi-Color Design</li>
+                            <li><i class="fas fa-check"></i> App control</li>
+                            <li><i class="fas fa-check"></i> Color Modes</li>
+                            <li><i class="fas fa-check"></i> Animation Patterns</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-package">
+                        <h4 class="package-title">Premium Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$1000+</span>
+                            <span class="old-price">$1200+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> 800 Twinkling Stars</li>
+                            <li><i class="fas fa-check"></i> Multi-Color Design</li>
+                            <li><i class="fas fa-check"></i> App control</li>
+                            <li><i class="fas fa-check"></i> Color Modes</li>
+                            <li><i class="fas fa-check"></i> Animation Patterns</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ambient Lighting Modal -->
+    <div class="modal" id="ambient-lighting-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content pricing-modal">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h2 class="modal-title">Ambient Lighting Pricing</h2>
+                <div class="sale-badge">
+                    <span>Up to 20% OFF</span>
+                    <p>Limited time offer - Sale ends August 15, 2025</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">
+                    Create the perfect mood with our custom ambient lighting solutions, featuring RGB LED systems with smartphone control and music synchronization.
+                </p>
+                <div class="pricing-packages">
+                    <div class="pricing-package">
+                        <h4 class="package-title">Basic Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$400+</span>
+                            <span class="old-price">$450+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Dash</li>
+                            <li><i class="fas fa-check"></i> Center Console</li>
+                            <li><i class="fas fa-check"></i> Footwells</li>
+                            <li><i class="fas fa-check"></i> Professional Installation</li>
+                            <li><i class="fas fa-check"></i> 1-year warranty</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-package popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <h4 class="package-title">Advanced Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$550+</span>
+                            <span class="old-price">$600+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Dash</li>
+                            <li><i class="fas fa-check"></i> Door Trims</li>
+                            <li><i class="fas fa-check"></i> Footwells</li>
+                            <li><i class="fas fa-check"></i> Center Console</li>
+                            <li><i class="fas fa-check"></i> Professional Installation</li>
+                            <li><i class="fas fa-check"></i> 1-year warranty</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-package">
+                        <h4 class="package-title">Premium Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$920+</span>
+                            <span class="old-price">$960+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Dash</li>
+                            <li><i class="fas fa-check"></i> Center Console</li>
+                            <li><i class="fas fa-check"></i> Door Trims</li>
+                            <li><i class="fas fa-check"></i> Footwells</li>
+                            <li><i class="fas fa-check"></i> Door Handles</li>
+                            <li><i class="fas fa-check"></i> Door Pockets</li>
+                            <li><i class="fas fa-check"></i> Cup Holders</li>
+                            <li><i class="fas fa-check"></i> Professional Installation</li>
+                            <li><i class="fas fa-check"></i> 1-year warranty</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Underglow Modal -->
+    <div class="modal" id="underglow-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content pricing-modal">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <h2 class="modal-title">Underglow Pricing</h2>
+                <div class="sale-badge">
+                    <span>Up to 20% OFF</span>
+                    <p>Limited time offer - Sale ends August 15, 2025</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">
+                    Add a stunning ground effect to your vehicle with our premium underglow lighting systems, featuring water-resistant RGB LED strips with app control.
+                </p>
+                <div class="pricing-packages">
+                    <div class="pricing-package">
+                        <h4 class="package-title">Basic Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$160+</span>
+                            <span class="old-price">$200+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Left and right side coverage</li>
+                            <li><i class="fas fa-check"></i> RGB lighting</li>
+                            <li><i class="fas fa-check"></i> Remote control</li>
+                            <li><i class="fas fa-check"></i> Weather-resistant design</li>
+                            <li><i class="fas fa-check"></i> 1-year warranty</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-package popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <h4 class="package-title">Advanced Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$250+</span>
+                            <span class="old-price">$300+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> All around coverage</li>
+                            <li><i class="fas fa-check"></i> Multi-color RGB system</li>
+                            <li><i class="fas fa-check"></i> Multiple patterns and effects</li>
+                            <li><i class="fas fa-check"></i> Bluetooth control</li>
+                            <li><i class="fas fa-check"></i> Weather resistant</li>
+                            <li><i class="fas fa-check"></i> 1-year warranty</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                    
+                    <div class="pricing-package">
+                        <h4 class="package-title">Premium Package</h4>
+                        <div class="package-price">
+                            <span class="current-price">$400+</span>
+                            <span class="old-price">$500+</span>
+                        </div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Premium high-output Dream Chaser lights</li>
+                            <li><i class="fas fa-check"></i> Smartphone app control</li>
+                            <li><i class="fas fa-check"></i> All around lighting strips</li>
+                            <li><i class="fas fa-check"></i> Weatherproofing</li>
+                            <li><i class="fas fa-check"></i> 1-year warranty</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Lighting Modal -->
+    <div class="modal" id="emergency-lighting-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content pricing-modal">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h2 class="modal-title">Emergency Lighting Pricing</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">
+                    Stay visible and safe with our professional emergency lighting installation service. We provide high-quality, reliable LED lighting for emergency vehicles, ensuring maximum visibility in any situation.
+                </p>
+                <div class="pricing-packages">
+                    <div class="pricing-package">
+                        <h4 class="package-title">Contact for Pricing</h4>
+                        <p class="contact-pricing-text">Emergency lighting solutions are customized based on your specific vehicle and requirements. Contact us for a personalized quote.</p>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> High-Quality LED Systems</li>
+                            <li><i class="fas fa-check"></i> Meets Safety Standards</li>
+                            <li><i class="fas fa-check"></i> Maximum Visibility</li>
+                            <li><i class="fas fa-check"></i> Durable & Efficient</li>
+                            <li><i class="fas fa-check"></i> Professional Installation</li>
+                        </ul>
+                        <a href="contact.html" class="package-button">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>

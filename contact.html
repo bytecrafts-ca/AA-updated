@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | aa-automods</title>
+    <title>Contact | A&A AutoMods</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="nav-container container">
             <a href="index.html" class="logo">
-                <span class="logo-text">aa-automods</span>
-                <span class="logo-sub">precision automotive</span>
+                <span class="logo-text">A&A AutoMods</span>
+                <span class="logo-sub">Toronto's #1 Car Customization Shop</span>
             </a>
             
             <div class="nav-menu">
@@ -38,7 +38,7 @@
                 </div>
                 
                 <div class="nav-cta">
-                    <a href="contact.html" class="btn-nav">
+                    <a href="#contact-form" class="btn-nav">
                         <span>Get Quote</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -48,13 +48,586 @@
             <button class="mobile-toggle">
                 <span class="toggle-line"></span>
                 <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
             </button>
         </div>
     </nav>
 
-    <!-- Contact page specific content would go here -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-background">
+                <div class="hero-video">
+                    <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1974'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+                </div>
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <div class="hero-subtitle">
+                        <span class="subtitle-line"></span>
+                        <span>GET IN TOUCH</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line">Start Your</span>
+                        <span class="title-line">Project Today</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Ready to transform your vehicle? Contact us for a consultation and let's discuss 
+                        how we can bring your automotive vision to life with precision and expertise.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <!-- Same footer as index.html -->
+        <!-- Contact Info & Form Section -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="header-left">
+                        <div class="section-label">
+                            <span class="label-line"></span>
+                            <span>CONTACT US</span>
+                        </div>
+                        <h2 class="section-title">Let's Create<br>Something Amazing</h2>
+                    </div>
+                    <div class="header-right">
+                        <p class="section-description">
+                            Whether you're looking for performance upgrades, custom builds, or premium detailing, 
+                            our team is ready to help you achieve automotive perfection.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info-section">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="contact-title">Visit Our Shop</h3>
+                            <p class="contact-detail">
+                                190 Creditstone Rd Units 2&3<br>
+                                Vaughan, ON L4K 1R9<br>
+                                Canada
+                            </p>
+                            <a href="https://www.google.com/maps/search/190+creditstone+rd+unit+2%263,+Vaughan,+on+l4k+1r9" target="_blank" class="contact-link">
+                                <span>Get Directions</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3 class="contact-title">Call Us</h3>
+                            <p class="contact-detail">
+                                Phone: (647) 677-7287<br>
+                                Monday - Sunday<br>
+                                11:00 AM - 7:00 PM
+                            </p>
+                            <a href="tel:+16476777287" class="contact-link">
+                                <span>Call Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="contact-title">Email Us</h3>
+                            <p class="contact-detail">
+                                Email: Anthony.aalighting@gmail.com<br>
+                                We respond within 24 hours<br>
+                                For quotes and consultations
+                            </p>
+                            <a href="mailto:Anthony.aalighting@gmail.com" class="contact-link">
+                                <span>Send Email</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="contact-title">Business Hours</h3>
+                            <p class="contact-detail">
+                                Monday - Sunday: 11:00 AM - 7:00 PM<br>
+                                Open 7 days a week<br>
+                                Walk-ins welcome
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-section" id="contact-form">
+                        <h3 class="form-title">Send Us a Message</h3>
+                        <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
+                        
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="vehicle">Vehicle Details *</label>
+                                <input type="text" id="vehicle" name="vehicle" required placeholder="Year, Make, Model (e.g., 2023 Porsche 911)">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service">Service Interested In *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="star-headliner">Star Headliner</option>
+                                    <option value="ambient-lighting">Ambient Lighting</option>
+                                    <option value="underglow">Underglow</option>
+                                    <option value="emergency-lighting">Emergency Lighting</option>
+                                    <option value="remote-starter">Remote Starter</option>
+                                    <option value="backup-camera">Backup Camera</option>
+                                    <option value="dash-camera">Dash Camera</option>
+                                    <option value="infotainment-system">Infotainment System</option>
+                                    <option value="detailing">Detailing</option>
+                                    <option value="consultation">General Consultation</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="message">Project Details *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project, goals, and any specific requirements..."></textarea>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <label for="newsletter">Subscribe to our newsletter for updates and promotions</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-primary submit-btn">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Find Our Location</h2>
+                    <p class="section-description">
+                        Visit our state-of-the-art facility in Vaughan, Ontario
+                    </p>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <!-- In a real implementation, this would be a Google Maps embed -->
+                        <div class="map-image" style="background-image: url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1974'); background-size: cover; background-position: center;">
+                            <div class="map-overlay">
+                                <div class="map-info">
+                                    <h3>A&A AutoMods Facility</h3>
+                                    <p>190 Creditstone Rd Units 2&3, Vaughan, ON L4K 1R9, Canada</p>
+                                    <a href="https://www.google.com/maps/search/190+creditstone+rd+unit+2%263,+Vaughan,+on+l4k+1r9" target="_blank" class="btn-secondary">
+                                        <i class="fas fa-directions"></i>
+                                        <span>Open in Maps</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Begin Your Project?</h2>
+                    <p class="cta-description">
+                        Contact us today for a free consultation and quote. Let's bring your automotive vision to life.
+                    </p>
+                    <div class="cta-actions">
+                        <a href="tel:+16476777287" class="btn-primary">
+                            <i class="fas fa-phone"></i>
+                            <span>Call Now</span>
+                        </a>
+                        <a href="mailto:Anthony.aalighting@gmail.com" class="btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Us</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">A&A AutoMods</a>
+                    <p class="footer-description">
+                        A&A AutoMods specializes in high-end automotive customizations with a focus on lighting and interior transformations.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#star-headliner">Star Headliner</a></li>
+                        <li><a href="services.html#ambient-lighting">Ambient Lighting</a></li>
+                        <li><a href="services.html#underglow">Underglow</a></li>
+                        <li><a href="services.html#emergency-lighting">Emergency Lighting</a></li>
+                        <li><a href="services.html">View All</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>190 Creditstone Rd Units 2&3<br>Vaughan, ON L4K 1R9<br>Canada</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(647) 677-7287</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Anthony.aalighting@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 A&A AutoMods. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add to styles.css -->
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--black);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .contact-info-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .contact-card {
+            background: var(--medium-gray);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-base);
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .contact-detail {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: var(--transition-base);
+        }
+
+        .contact-link:hover {
+            gap: 1rem;
+        }
+
+        .contact-form-section {
+            background: var(--medium-gray);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-title {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .form-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: var(--dark-gray);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 0.875rem 1rem;
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            transition: var(--transition-base);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-primary);
+        }
+
+        .form-checkbox label {
+            margin: 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            justify-self: start;
+            margin-top: var(--spacing-md);
+        }
+
+        .map-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--dark-gray);
+        }
+
+        .map-container {
+            margin-top: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-placeholder {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .map-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl);
+        }
+
+        .map-info {
+            text-align: center;
+            color: var(--text-primary);
+            max-width: 400px;
+        }
+
+        .map-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .map-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .contact-info-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width,
+            .submit-btn {
+                grid-column: span 1;
+            }
+
+            .map-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
     <script src="main.js"></script>
+    <script>
+        // Form submission handling
+        document.querySelector('.contact-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.querySelector('span').textContent;
+            
+            // Simulate form submission
+            submitBtn.querySelector('span').textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // In a real implementation, you would send this data to a server
+            setTimeout(() => {
+                alert('Thank you for your message! We will get back to you within 24 hours.');
+                submitBtn.querySelector('span').textContent = originalText;
+                submitBtn.disabled = false;
+                this.reset();
+            }, 1500);
+        });
+    </script>
 </body>
 </html>

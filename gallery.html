@@ -4,17 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | aa-automods</title>
+    <title>Gallery | A&A AutoMods</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="nav-container container">
             <a href="index.html" class="logo">
-                <span class="logo-text">aa-automods</span>
-                <span class="logo-sub">precision automotive</span>
+                <span class="logo-text">A&A AutoMods</span>
+                <span class="logo-sub">Toronto's #1 Car Customization Shop</span>
             </a>
             
             <div class="nav-menu">
@@ -48,13 +48,413 @@
             <button class="mobile-toggle">
                 <span class="toggle-line"></span>
                 <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
             </button>
         </div>
     </nav>
 
-    <!-- Gallery page specific content would go here -->
+    <main>
+        <section class="hero">
+            <div class="hero-background">
+                <div class="hero-video">
+                    <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2022'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+                </div>
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <div class="hero-subtitle">
+                        <span class="subtitle-line"></span>
+                        <span>OUR PORTFOLIO</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line">Featured</span>
+                        <span class="title-line">Projects</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Explore our gallery of completed projects showcasing precision craftsmanship, 
+                        innovative modifications, and automotive excellence.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-    <!-- Same footer as index.html -->
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="star-headliner">Star Headliner</button>
+                    <button class="filter-btn" data-filter="ambient-lighting">Ambient Lighting</button>
+                    <button class="filter-btn" data-filter="underglow">Underglow</button>
+                    <button class="filter-btn" data-filter="emergency-lighting">Emergency Lighting</button>
+                    <button class="filter-btn" data-filter="other">Other Services</button>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="performance">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?q=80&w=2021" alt="Porsche 911 GT3 RS Performance Build">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">Porsche 911 GT3 RS</h3>
+                                    <p class="gallery-tag">Performance Tuning</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="widebody">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2022" alt="Audi R8 Widebody Conversion">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">Audi R8 V10+</h3>
+                                    <p class="gallery-tag">Widebody Conversion</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="detailing">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=1964" alt="BMW M4 Ceramic Coating">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">BMW M4 Competition</h3>
+                                    <p class="gallery-tag">Ceramic Coating</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="custom">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2023" alt="Mercedes AMG Custom Build">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">Mercedes AMG GT</h3>
+                                    <p class="gallery-tag">Custom Build</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="performance">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=2071" alt="Nissan GT-R Performance Upgrade">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">Nissan GT-R</h3>
+                                    <p class="gallery-tag">Performance Upgrade</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="detailing">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070" alt="Lamborghini Paint Correction">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">Lamborghini Huracán</h3>
+                                    <p class="gallery-tag">Paint Correction</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="custom">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070" alt="Ford Mustang Custom Build">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">Ford Mustang GT500</h3>
+                                    <p class="gallery-tag">Custom Build</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="widebody">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?q=80&w=2070" alt="Toyota Supra Widebody">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">Toyota Supra MK5</h3>
+                                    <p class="gallery-tag">Widebody Kit</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item" data-category="performance">
+                        <div class="gallery-image">
+                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070" alt="Mclaren 720S Tuning">
+                            <div class="gallery-overlay">
+                                <div class="gallery-info">
+                                    <h3 class="gallery-title">McLaren 720S</h3>
+                                    <p class="gallery-tag">ECU Tuning</p>
+                                </div>
+                                <button class="gallery-expand" aria-label="Expand image">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-prev" aria-label="Previous image">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-next" aria-label="Next image">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-tag"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">A&A AutoMods</a>
+                    <p class="footer-description">
+                        A&A AutoMods specializes in high-end automotive customizations with a focus on lighting and interior transformations.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html#star-headliner">Star Headliner</a></li>
+                        <li><a href="services.html#ambient-lighting">Ambient Lighting</a></li>
+                        <li><a href="services.html#underglow">Underglow</a></li>
+                        <li><a href="services.html#emergency-lighting">Emergency Lighting</a></li>
+                        <li><a href="services.html">View All</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>190 Creditstone Rd Units 2&3<br>Vaughan, ON L4K 1R9<br>Canada</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(647) 677-7287</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Anthony.aalighting@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 A&A AutoMods. All rights reserved.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="main.js"></script>
+    <script>
+        // Gallery Filter Functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxTag = document.getElementById('lightbox-tag');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        const expandBtns = document.querySelectorAll('.gallery-expand');
+        
+        let currentImageIndex = 0;
+        let visibleImages = [];
+
+        function updateVisibleImages() {
+            visibleImages = Array.from(document.querySelectorAll('.gallery-item[style*="block"], .gallery-item:not([style*="none"])'))
+                .filter(item => item.style.display !== 'none')
+                .map(item => ({
+                    img: item.querySelector('img').src,
+                    title: item.querySelector('.gallery-title').textContent,
+                    tag: item.querySelector('.gallery-tag').textContent
+                }));
+        }
+
+        function openLightbox(index) {
+            updateVisibleImages();
+            currentImageIndex = index;
+            updateLightboxImage();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightboxImage() {
+            if (visibleImages[currentImageIndex]) {
+                lightboxImg.src = visibleImages[currentImageIndex].img;
+                lightboxTitle.textContent = visibleImages[currentImageIndex].title;
+                lightboxTag.textContent = visibleImages[currentImageIndex].tag;
+            }
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+            updateLightboxImage();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+            updateLightboxImage();
+        }
+
+        expandBtns.forEach((btn, index) => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const items = Array.from(document.querySelectorAll('.gallery-item'))
+                    .filter(item => item.style.display !== 'none');
+                const itemIndex = items.indexOf(btn.closest('.gallery-item'));
+                openLightbox(itemIndex);
+            });
+        });
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', (e) => {
+                if (!e.target.closest('.gallery-expand')) {
+                    const items = Array.from(document.querySelectorAll('.gallery-item'))
+                        .filter(i => i.style.display !== 'none');
+                    const itemIndex = items.indexOf(item);
+                    openLightbox(itemIndex);
+                }
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', prevImage);
+        lightboxNext.addEventListener('click', nextImage);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevImage();
+                if (e.key === 'ArrowRight') nextImage();
+            }
+        });
+    </script>
 </body>
 </html>
