@@ -289,7 +289,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+    background: transparent;
     z-index: -1;
 }
 
@@ -781,7 +781,7 @@ p {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: var(--spacing-md);
 }
 
@@ -840,6 +840,11 @@ p {
     cursor: pointer;
     font-family: inherit;
     padding: 0;
+}
+
+/* Make last service card wider to fill gap */
+#emergency-lighting {
+    grid-column: span 3;
 }
 
 /* Additional Services Section */
@@ -1045,7 +1050,7 @@ p {
 
 .pricing-packages {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
 }
@@ -1062,6 +1067,11 @@ p {
 .pricing-package:hover {
     border-color: var(--accent-primary);
     transform: translateY(-5px);
+}
+
+/* Make last pricing package wider to fill gap */
+.pricing-packages .pricing-package:last-child {
+    grid-column: span 2;
 }
 
 .pricing-package.popular {
@@ -1568,6 +1578,12 @@ p {
     
     .pricing-packages {
         grid-template-columns: 1fr;
+    }
+    
+    /* Reset grid-column on mobile for service card and pricing packages */
+    #emergency-lighting,
+    .pricing-packages .pricing-package:last-child {
+        grid-column: span 1;
     }
     
     .modal-content {
