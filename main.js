@@ -171,3 +171,123 @@ document.addEventListener('keydown', (e) => {
         });
     }
 });
+
+// Service Card Image Carousel
+class ServiceCarousel {
+    constructor(container) {
+        this.container = container;
+        this.slides = container.querySelectorAll('.carousel-slide');
+        this.indicators = container.querySelectorAll('.indicator');
+        this.prevBtn = container.querySelector('.carousel-prev');
+        this.nextBtn = container.querySelector('.carousel-next');
+        this.currentIndex = 0;
+        this.autoRotateInterval = null;
+        this.autoRotateDelay = 4000; // 4 seconds
+        
+        this.init();
+    }
+    
+    init() {
+        // Set up navigation buttons
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.goToPrev();
+            });
+        }
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.goToNext();
+            });
+        }
+        
+        // Set up indicators
+        this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.goToSlide(index);
+            });
+        });
+        
+        // Start auto-rotation
+        this.startAutoRotate();
+        
+        // Pause on hover
+        const serviceCard = this.container.closest('.service-card');
+        if (serviceCard) {
+            serviceCard.addEventListener('mouseenter', () => this.stopAutoRotate());
+            serviceCard.addEventListener('mouseleave', () => this.startAutoRotate());
+        }
+    }
+    
+    goToSlide(index) {
+        if (index < 0 || index >= this.slides.length) return;
+        
+        // Remove active class from current slide and indicator
+        this.slides[this.currentIndex].classList.remove('active');
+        this.indicators[this.currentIndex].classList.remove('active');
+        
+        // Set new index
+        this.currentIndex = index;
+        
+        // Add active class to new slide and indicator
+        this.slides[this.currentIndex].classList.add('active');
+        this.indicators[this.currentIndex].classList.add('active');
+        
+        // Reset auto-rotate timer
+        this.resetAutoRotate();
+    }
+    
+    goToNext() {
+        const nextIndex = (this.currentIndex + 1) % this.slides.length;
+        this.goToSlide(nextIndex);
+    }
+    
+    goToPrev() {
+        const prevIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
+        this.goToSlide(prevIndex);
+    }
+    
+    startAutoRotate() {
+        this.stopAutoRotate(); // Clear any existing interval
+        this.autoRotateInterval = setInterval(() => {
+            this.goToNext();
+        }, this.autoRotateDelay);
+    }
+    
+    stopAutoRotate() {
+        if (this.autoRotateInterval) {
+            clearInterval(this.autoRotateInterval);
+            this.autoRotateInterval = null;
+        }
+    }
+    
+    resetAutoRotate() {
+        this.stopAutoRotate();
+        this.startAutoRotate();
+    }
+}
+
+// Initialize all service carousels
+function initServiceCarousels() {
+    const carouselContainers = document.querySelectorAll('.service-image-carousel .carousel-container');
+    carouselContainers.forEach(container => {
+        // Check if already initialized
+        if (!container.dataset.initialized) {
+            new ServiceCarousel(container);
+            container.dataset.initialized = 'true';
+        }
+    });
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceCarousels);
+} else {
+    // DOM is already loaded
+    initServiceCarousels();
+}

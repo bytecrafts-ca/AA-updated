@@ -368,24 +368,26 @@
         .contact-section {
             padding: var(--spacing-xl) 0;
             background: var(--black);
+            position: relative;
+            z-index: 1;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: var(--spacing-xl);
+            grid-template-columns: 1.1fr 1fr;
+            gap: var(--spacing-lg);
             margin-top: var(--spacing-xl);
         }
 
         .contact-info-section {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-md);
+            gap: 1rem;
         }
 
         .contact-card {
             background: var(--medium-gray);
-            padding: var(--spacing-lg);
+            padding: 1.25rem;
             border-radius: var(--border-radius);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition-base);
@@ -393,26 +395,26 @@
 
         .contact-card:hover {
             border-color: var(--accent-primary);
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
 
         .contact-icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--accent-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .contact-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
         .contact-detail {
             color: var(--text-secondary);
-            font-size: 0.875rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+            font-size: 0.8125rem;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
         }
 
         .contact-link {
@@ -522,6 +524,8 @@
         .map-section {
             padding: var(--spacing-xl) 0;
             background: var(--dark-gray);
+            position: relative;
+            z-index: 1;
         }
 
         .map-container {
