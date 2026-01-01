@@ -247,7 +247,8 @@ p {
 
 /* Hero Section */
 .hero {
-    min-height: 75vh;
+    height: 100vh;
+    min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1748,7 +1749,8 @@ p {
     }
     
     .hero {
-        min-height: 65vh;
+        height: 100vh;
+        min-height: 100vh;
         padding: 120px 0 var(--spacing-md);
     }
     
