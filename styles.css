@@ -998,6 +998,60 @@ p {
     text-shadow: 0 2px 8px rgba(58, 134, 255, 0.5);
 }
 
+/* Simple service card styles (for index.html - cards without .service-content) */
+/* Target service-icon, service-title, etc. when they're direct children of service-card */
+.service-card > .service-icon {
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--spacing-lg);
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+}
+
+.service-card > .service-title {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-align: center;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+}
+
+.service-card > .service-description {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    flex-grow: 1;
+    text-align: center;
+    line-height: 1.6;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+}
+
+.service-card > .service-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: var(--transition-base);
+    margin-top: auto;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+.service-card > .service-link:hover {
+    gap: 1rem;
+    color: var(--accent-hover);
+}
+
 /* Make last service card wider to fill gap on larger screens */
 @media (min-width: 1200px) {
     #emergency-lighting {
