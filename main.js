@@ -178,8 +178,6 @@ class ServiceCarousel {
         this.container = container;
         this.slides = container.querySelectorAll('.carousel-slide');
         this.indicators = container.querySelectorAll('.indicator');
-        this.prevBtn = container.querySelector('.carousel-prev');
-        this.nextBtn = container.querySelector('.carousel-next');
         this.currentIndex = 0;
         this.autoRotateInterval = null;
         this.autoRotateDelay = 4000; // 4 seconds
@@ -188,31 +186,6 @@ class ServiceCarousel {
     }
     
     init() {
-        // Set up navigation buttons
-        if (this.prevBtn) {
-            this.prevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.goToPrev();
-            });
-        }
-        if (this.nextBtn) {
-            this.nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.goToNext();
-            });
-        }
-        
-        // Set up indicators
-        this.indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.goToSlide(index);
-            });
-        });
-        
         // Start auto-rotation
         this.startAutoRotate();
         
@@ -227,16 +200,24 @@ class ServiceCarousel {
     goToSlide(index) {
         if (index < 0 || index >= this.slides.length) return;
         
-        // Remove active class from current slide and indicator
+        // Remove active class from current slide
         this.slides[this.currentIndex].classList.remove('active');
-        this.indicators[this.currentIndex].classList.remove('active');
+        
+        // Update indicator if it exists
+        if (this.indicators.length > 0 && this.indicators[this.currentIndex]) {
+            this.indicators[this.currentIndex].classList.remove('active');
+        }
         
         // Set new index
         this.currentIndex = index;
         
-        // Add active class to new slide and indicator
+        // Add active class to new slide
         this.slides[this.currentIndex].classList.add('active');
-        this.indicators[this.currentIndex].classList.add('active');
+        
+        // Update indicator if it exists
+        if (this.indicators.length > 0 && this.indicators[this.currentIndex]) {
+            this.indicators[this.currentIndex].classList.add('active');
+        }
         
         // Reset auto-rotate timer
         this.resetAutoRotate();
