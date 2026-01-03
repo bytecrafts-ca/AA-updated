@@ -189,12 +189,7 @@ class ServiceCarousel {
         // Start auto-rotation
         this.startAutoRotate();
         
-        // Pause on hover
-        const serviceCard = this.container.closest('.service-card');
-        if (serviceCard) {
-            serviceCard.addEventListener('mouseenter', () => this.stopAutoRotate());
-            serviceCard.addEventListener('mouseleave', () => this.startAutoRotate());
-        }
+        // Keep carousel moving even on hover - removed pause functionality
     }
     
     goToSlide(index) {
