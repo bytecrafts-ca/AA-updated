@@ -1,28 +1,33 @@
 // main.js
-// Mobile Navigation
-const mobileToggle = document.querySelector('.mobile-toggle');
+// Brand New Clean Mobile Navigation
+const navMenuBtn = document.querySelector('.nav-menu-btn');
 const navMenu = document.querySelector('.nav-menu');
 
-if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', (e) => {
+if (navMenuBtn && navMenu) {
+    navMenuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        navMenu.classList.toggle('active');
-        mobileToggle.classList.toggle('active');
+        const isActive = navMenu.classList.toggle('active');
+        navMenuBtn.classList.toggle('active');
         
-        // Toggle body scroll
-        if (navMenu.classList.contains('active')) {
+        // Toggle body scroll and overlay
+        if (isActive) {
             document.body.style.overflow = 'hidden';
+            document.body.classList.add('menu-open');
         } else {
             document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
         }
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !navMenuBtn.contains(e.target)) {
             navMenu.classList.remove('active');
-            mobileToggle.classList.remove('active');
+            navMenuBtn.classList.remove('active');
             document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
         }
     });
 
@@ -31,8 +36,9 @@ if (mobileToggle && navMenu) {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
-            mobileToggle.classList.remove('active');
+            navMenuBtn.classList.remove('active');
             document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
         });
     });
 }
@@ -91,10 +97,11 @@ window.addEventListener('scroll', () => {
 
 // Handle window resize
 window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navMenu) {
+    if (window.innerWidth > 768 && navMenu && navMenuBtn) {
         navMenu.classList.remove('active');
-        mobileToggle.classList.remove('active');
+        navMenuBtn.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
     }
 });
 
@@ -104,16 +111,6 @@ window.addEventListener('load', () => {
     cards.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.1}s`;
     });
-});
-// In main.js - ensure proper mobile toggle initialization
-const mobileToggles = document.querySelectorAll('.mobile-toggle');
-mobileToggles.forEach(toggle => {
-    if (toggle.children.length === 2) {
-        // Add missing third line
-        const thirdLine = document.createElement('span');
-        thirdLine.className = 'toggle-line';
-        toggle.appendChild(thirdLine);
-    }
 });
 
 // Modal functionality
