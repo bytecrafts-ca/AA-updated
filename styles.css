@@ -913,6 +913,104 @@ p {
     right: 2rem;
 }
 
+/* Modern Swipe Hint for Mobile */
+.swipe-hint {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    pointer-events: none;
+}
+
+.swipe-hint-arrows {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 60px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: swipeHintEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.swipe-arrow {
+    width: 20px;
+    height: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    stroke-width: 2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.swipe-arrow-left {
+    animation: swipeLeft 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.swipe-arrow-right {
+    animation: swipeRight 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation-delay: 1s;
+}
+
+.swipe-hint.fade-out {
+    animation: swipeHintExit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.swipe-hint.fade-out .swipe-hint-arrows {
+    animation: none;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+@keyframes swipeHintEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes swipeHintExit {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px) scale(0.95);
+    }
+}
+
+@keyframes swipeLeft {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateX(-12px);
+        opacity: 1;
+    }
+}
+
+@keyframes swipeRight {
+    0%, 100% {
+        transform: translateX(0);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateX(12px);
+        opacity: 1;
+    }
+}
+
 /* Services Preview */
 .services-preview {
     padding: var(--spacing-xl) 0;
@@ -2039,17 +2137,21 @@ p {
     
     .lightbox-prev,
     .lightbox-next {
-        width: 36px;
-        height: 36px;
-        font-size: 0.875rem;
+        display: none; /* Hide buttons on mobile */
     }
     
-    .lightbox-prev {
-        left: 0.75rem;
+    .swipe-hint {
+        bottom: 2rem;
     }
     
-    .lightbox-next {
-        right: 0.75rem;
+    .swipe-hint-arrows {
+        gap: 1.5rem;
+        padding: 0.625rem 1.25rem;
+    }
+    
+    .swipe-arrow {
+        width: 18px;
+        height: 18px;
     }
     
     .pagination-container {

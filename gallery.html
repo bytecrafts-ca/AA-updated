@@ -443,6 +443,16 @@
         <button class="lightbox-next" aria-label="Next image">
             <i class="fas fa-chevron-right"></i>
         </button>
+        <div class="swipe-hint" id="swipe-hint">
+            <div class="swipe-hint-arrows">
+                <svg class="swipe-arrow swipe-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg class="swipe-arrow swipe-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
         <div class="lightbox-content">
             <img src="" alt="" id="lightbox-img">
             <div class="demo-placeholder-large" id="lightbox-demo" style="display: none;">DEMO</div>
@@ -800,6 +810,14 @@
             updateLightboxImage();
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // Show swipe hint on mobile
+            const swipeHint = document.getElementById('swipe-hint');
+            if (swipeHint && window.innerWidth <= 768) {
+                hasSwiped = false;
+                swipeHint.style.display = 'flex';
+                swipeHint.classList.remove('fade-out');
+            }
         }
 
         function closeLightbox() {
@@ -884,6 +902,65 @@
                 if (e.key === 'ArrowRight') nextImage();
             }
         });
+
+        // Mobile Swipe Functionality
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let hasSwiped = false;
+        const swipeHint = document.getElementById('swipe-hint');
+        const isMobile = () => window.innerWidth <= 768;
+
+        function hideSwipeHint() {
+            if (swipeHint && !hasSwiped) {
+                hasSwiped = true;
+                swipeHint.classList.add('fade-out');
+                setTimeout(() => {
+                    if (swipeHint) {
+                        swipeHint.style.display = 'none';
+                    }
+                }, 400);
+            }
+        }
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                hideSwipeHint();
+                if (diff > 0) {
+                    nextImage();
+                } else {
+                    prevImage();
+                }
+            }
+        }
+
+        if (lightbox) {
+            lightbox.addEventListener('touchstart', (e) => {
+                if (isMobile()) {
+                    touchStartX = e.changedTouches[0].screenX;
+                }
+            }, { passive: true });
+
+            lightbox.addEventListener('touchend', (e) => {
+                if (isMobile()) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }
+            }, { passive: true });
+
+            window.addEventListener('resize', () => {
+                if (swipeHint) {
+                    if (!isMobile()) {
+                        swipeHint.style.display = 'none';
+                    } else if (lightbox.classList.contains('active') && !hasSwiped) {
+                        swipeHint.style.display = 'flex';
+                        swipeHint.classList.remove('fade-out');
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
