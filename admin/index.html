@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin | A&A AutoMods</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    body { padding-top: 120px; }
+    .admin-wrap { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+    .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display:block; font-weight:600; margin: 10px 0 6px; }
+    input { width:100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.3); color: #fff; }
+    .btn { padding: 10px 14px; border-radius: 10px; border: 0; cursor:pointer; font-weight:700; }
+    .btn-primary { background: var(--accent-primary); color: #fff; }
+    .btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.2); color:#fff; }
+    .muted { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+    .section-title { margin: 22px 0 10px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo"><span class="logo-text">A&A AutoMods</span></a>
+      <div class="nav-menu">
+        <div class="nav-links">
+          <a href="../index.html" class="nav-link">Home</a>
+          <a href="../services.html" class="nav-link">Services</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="admin-wrap">
+    <h1>Admin Panel</h1>
+    <p class="muted">Login here to update pricing. This page is not linked publicly.</p>
+
+    <!-- Login -->
+    <div id="loginCard" class="card">
+      <h2 class="section-title">Login</h2>
+      <div class="row">
+        <div>
+          <label>Email</label>
+          <input id="email" type="email" autocomplete="username" />
+        </div>
+        <div>
+          <label>Password</label>
+          <input id="password" type="password" autocomplete="current-password" />
+        </div>
+      </div>
+      <div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+        <button class="btn btn-primary" id="loginBtn">Login</button>
+        <span class="muted" id="loginMsg"></span>
+      </div>
+    </div>
+
+    <!-- Editor -->
+    <div id="editorCard" class="card" style="display:none; margin-top:16px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+        <div>
+          <h2 class="section-title" style="margin:0;">Edit Pricing</h2>
+          <div class="muted">Logged in as <span id="userEmail"></span></div>
+        </div>
+        <button class="btn btn-ghost" id="logoutBtn">Logout</button>
+      </div>
+
+      <h3 style="margin-top:18px;">Star Headliner</h3>
+      <div class="row">
+        <div><label>300 stars</label><input data-bind="prices.starHeadliner.stars300"></div>
+        <div><label>400 stars</label><input data-bind="prices.starHeadliner.stars400"></div>
+        <div><label>600 stars</label><input data-bind="prices.starHeadliner.stars600"></div>
+        <div><label>800 stars</label><input data-bind="prices.starHeadliner.stars800"></div>
+        <div><label>1000 stars</label><input data-bind="prices.starHeadliner.stars1000"></div>
+        <div><label>1200 stars</label><input data-bind="prices.starHeadliner.stars1200"></div>
+        <div><label>+5 shooting stars</label><input data-bind="prices.starHeadliner.shootingStars.five"></div>
+        <div><label>+8 shooting stars</label><input data-bind="prices.starHeadliner.shootingStars.eight"></div>
+      </div>
+
+      <h3 style="margin-top:18px;">Ambient Lighting</h3>
+      <p class="muted">Enter values exactly how you want them displayed (example: $440, $520, $650).</p>
+
+      <h4 style="margin-top:10px;">Basic</h4>
+      <div class="row">
+        <div><label>Kit only</label><input data-bind="prices.ambientLighting.basic.kitOnly"></div>
+        <div><label>With install</label><input data-bind="prices.ambientLighting.basic.withInstall"></div>
+      </div>
+
+      <h4 style="margin-top:10px;">Advanced</h4>
+      <div class="row">
+        <div><label>Kit only</label><input data-bind="prices.ambientLighting.advanced.kitOnly"></div>
+        <div><label>With install</label><input data-bind="prices.ambientLighting.advanced.withInstall"></div>
+      </div>
+
+      <h4 style="margin-top:10px;">Premium</h4>
+      <div class="row">
+        <div><label>Kit only</label><input data-bind="prices.ambientLighting.premium.kitOnly"></div>
+        <div><label>With install</label><input data-bind="prices.ambientLighting.premium.withInstall"></div>
+      </div>
+
+      <h3 style="margin-top:18px;">Underglow</h3>
+
+      <h4 style="margin-top:10px;">Pods</h4>
+      <div class="row">
+        <div><label>Type 1</label><input data-bind="prices.underglow.pods.type1"></div>
+        <div><label>Type 2</label><input data-bind="prices.underglow.pods.type2"></div>
+        <div><label>Type 3</label><input data-bind="prices.underglow.pods.type3"></div>
+      </div>
+
+      <h4 style="margin-top:10px;">Strips</h4>
+      <div class="row">
+        <div><label>RGB Basic (4)</label><input data-bind="prices.underglow.strips.rgbBasic4"></div>
+        <div><label>Premium Chasing (6)</label><input data-bind="prices.underglow.strips.premiumChasing6"></div>
+      </div>
+
+      <div style="margin-top:16px; display:flex; gap:10px; align-items:center;">
+        <button class="btn btn-primary" id="saveBtn">Save</button>
+        <span class="muted" id="saveMsg"></span>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./admin.js"></script>
+</body>
+</html>

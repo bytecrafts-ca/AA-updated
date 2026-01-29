@@ -1368,6 +1368,8 @@ p {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition-base);
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .modal.active {
@@ -1398,6 +1400,7 @@ p {
     transform: scale(0.9) translateY(20px);
     transition: var(--transition-base);
     z-index: 2001;
+    box-sizing: border-box;
 }
 
 .modal.active .modal-content {
@@ -1489,6 +1492,29 @@ p {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Starlight Packages Grid - 3 columns × 2 rows on desktop, 2 columns × 3 rows on mobile */
+.pricing-packages.starlight-packages {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .pricing-packages.starlight-packages {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .pricing-packages.ambient-packages {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .pricing-package {
@@ -1505,19 +1531,20 @@ p {
     transform: translateY(-5px);
 }
 
-/* Make last pricing package wider to fill gap */
-.pricing-packages .pricing-package:last-child {
+/* Make last pricing package wider to fill gap - but not for starlight packages */
+.pricing-packages:not(.starlight-packages) .pricing-package:last-child {
     grid-column: span 2;
 }
 
 .pricing-package.popular {
     border-color: var(--accent-primary);
     border-width: 2px;
+    padding-top: 2rem;
 }
 
 .popular-badge {
     position: absolute;
-    top: -12px;
+    top: 0.5rem;
     left: 50%;
     transform: translateX(-50%);
     background: var(--accent-primary);
@@ -1527,12 +1554,14 @@ p {
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.5px;
+    z-index: 10;
 }
 
 .package-title {
     font-size: 1.25rem;
     color: var(--text-primary);
     margin-bottom: 1rem;
+    margin-top: 0;
     text-align: center;
 }
 
@@ -1599,6 +1628,444 @@ p {
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 0.9375rem;
+}
+
+/* Ambient Lighting Packages - 3 column grid */
+.pricing-packages.ambient-packages {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.pricing-packages.ambient-packages .pricing-package:last-child {
+    grid-column: span 1;
+}
+
+/* Tier Badges */
+.package-tier-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+.package-tier-badge.basic-tier {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-primary);
+}
+
+.package-tier-badge.advanced-tier {
+    background: linear-gradient(135deg, #3A86FF 0%, #5D9CFF 100%);
+    color: var(--text-primary);
+}
+
+.package-tier-badge.premium-tier {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: var(--text-primary);
+}
+
+.pricing-package.popular .package-tier-badge {
+    top: 2.5rem;
+}
+
+/* Package Pricing Options */
+.package-pricing-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.pricing-option {
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.pricing-option:hover {
+    transform: scale(1.02);
+}
+
+.option-label {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.pricing-option .package-price {
+    margin-bottom: 0;
+}
+
+.pricing-option .current-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+}
+
+.pricing-divider {
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding: 0 1rem;
+}
+
+.pricing-divider::before,
+.pricing-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pricing-divider::before {
+    left: 0;
+}
+
+.pricing-divider::after {
+    right: 0;
+}
+
+/* Package Includes Section */
+.package-includes {
+    margin-top: 1.5rem;
+}
+
+.includes-title {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.package-includes .package-features {
+    margin-bottom: 0;
+}
+
+/* Shooting Stars Section */
+.shooting-stars-section {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.shooting-stars-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.shooting-stars-description {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-size: 0.9375rem;
+}
+
+.shooting-stars-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+    .shooting-stars-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.shooting-star-option {
+    background: var(--dark-gray);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    transition: var(--transition-base);
+    text-align: center;
+}
+
+.shooting-star-option:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(58, 134, 255, 0.15);
+}
+
+.shooting-star-icon {
+    font-size: 2rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+}
+
+.shooting-star-title {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.shooting-star-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+
+.shooting-star-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Underglow Pricing Tables */
+.underglow-pricing-section {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.underglow-pricing-section:first-of-type {
+    margin-top: 0;
+}
+
+.pricing-section-title {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pricing-section-title i {
+    color: var(--accent-primary);
+    font-size: 0.75rem;
+}
+
+.pricing-table-container {
+    background: var(--dark-gray);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pricing-table {
+    width: 100%;
+    min-width: 280px;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.pricing-table thead {
+    background: rgba(58, 134, 255, 0.1);
+}
+
+.pricing-table th {
+    padding: 1rem;
+    text-align: left;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(58, 134, 255, 0.3);
+    white-space: nowrap;
+}
+
+.pricing-table th:last-child {
+    text-align: right;
+}
+
+.pricing-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition-base);
+}
+
+.pricing-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.pricing-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.pricing-table td {
+    padding: 1.25rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.pricing-table td strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.pricing-table .price-cell {
+    text-align: right;
+    color: var(--accent-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pricing-note {
+    margin-top: var(--spacing-md);
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.pricing-note i {
+    color: var(--accent-primary);
+    font-size: 0.875rem;
+}
+
+.pricing-cta {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.pricing-cta .package-button {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pricing-table-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .pricing-table {
+        min-width: 260px;
+    }
+    
+    .pricing-table th,
+    .pricing-table td {
+        padding: 0.875rem 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .pricing-table .price-cell {
+        font-size: 1.125rem;
+    }
+    
+    .pricing-section-title {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .underglow-pricing-section {
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-table-container {
+        padding: 0.75rem;
+    }
+    
+    .pricing-table {
+        min-width: 240px;
+    }
+    
+    .pricing-table th {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.25px;
+    }
+    
+    .pricing-table td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8125rem;
+    }
+    
+    .pricing-table .price-cell {
+        font-size: 1rem;
+    }
+    
+    .pricing-section-title {
+        font-size: 1.125rem;
+        gap: 0.5rem;
+    }
+    
+    .pricing-section-title i {
+        font-size: 0.625rem;
+    }
+    
+    .pricing-note {
+        font-size: 0.8125rem;
+        padding-left: 0.25rem;
+        gap: 0.375rem;
+    }
+    
+    .pricing-note i {
+        font-size: 0.8125rem;
+    }
+    
+    .underglow-pricing-section {
+        margin-top: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .pricing-cta {
+        margin-top: var(--spacing-md);
+    }
+    
+    .pricing-cta .package-button {
+        max-width: 100%;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .pricing-table {
+        min-width: 220px;
+    }
+    
+    .pricing-table th {
+        padding: 0.625rem 0.375rem;
+        font-size: 0.6875rem;
+    }
+    
+    .pricing-table td {
+        padding: 0.625rem 0.375rem;
+        font-size: 0.75rem;
+    }
+    
+    .pricing-table .price-cell {
+        font-size: 0.9375rem;
+    }
+    
+    .pricing-section-title {
+        font-size: 1rem;
+    }
 }
 
 /* Featured Projects */
@@ -2033,7 +2500,7 @@ p {
     }
     
     .container {
-        padding: 0 1rem;
+        padding: 0 0.875rem;
     }
     
     .section-title {
@@ -2095,14 +2562,112 @@ p {
         padding: 1.5rem;
     }
     
-    .pricing-packages {
+    .pricing-packages:not(.starlight-packages) {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
+        gap: 0.875rem;
+    }
+    
+    .pricing-packages.starlight-packages {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        margin-top: 1rem;
+        justify-items: center;
+    }
+    
+    .pricing-packages.ambient-packages {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .popular-badge {
+        display: none;
+    }
+    
+    .pricing-package.popular {
+        border-width: 1.5px;
+        padding-top: 0.875rem;
+    }
+    
+    .pricing-package.popular .package-tier-badge {
+        top: 0.5rem;
+    }
+    
+    .pricing-package {
+        padding: 0.875rem;
+    }
+    
+    .package-title {
+        font-size: 0.9375rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .current-price {
+        font-size: 1.5rem;
+    }
+    
+    .package-price {
+        margin-bottom: 1rem;
+    }
+    
+    .package-pricing-options {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+    
+    .pricing-option .current-price {
+        font-size: 1.5rem;
+    }
+    
+    .option-label {
+        font-size: 0.6875rem;
+    }
+    
+    .pricing-divider {
+        font-size: 0.6875rem;
+        padding: 0.25rem 0;
+    }
+    
+    .package-includes {
+        margin-top: 1rem;
+    }
+    
+    .includes-title {
+        font-size: 0.8125rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .package-features {
+        margin-bottom: 1rem;
+    }
+    
+    .package-features li {
+        font-size: 0.8125rem;
+        margin-bottom: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .package-tier-badge {
+        font-size: 0.6875rem;
+        padding: 0.25rem 0.625rem;
+    }
+    
+    .package-features li i {
+        font-size: 0.75rem;
+    }
+    
+    .package-button {
+        padding: 0.5rem;
+        font-size: 0.75rem;
     }
     
     #emergency-lighting,
-    .pricing-packages .pricing-package:last-child {
+    .pricing-packages:not(.starlight-packages) .pricing-package:last-child {
         grid-column: span 1;
+    }
+    
+    .shooting-stars-options {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .pricing-package {
@@ -2110,12 +2675,52 @@ p {
     }
     
     .modal-content {
-        max-width: 95%;
-        padding: 1.5rem;
+        max-width: calc(100% - 1rem);
+        padding: 0.75rem;
+        margin: 0 auto;
+        max-height: 95vh;
+    }
+    
+    .modal {
+        padding: 0.5rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pricing-packages.starlight-packages {
+        width: 100%;
+        max-width: 100%;
     }
     
     .pricing-modal {
-        max-width: 95%;
+        max-width: 100%;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-header {
+        padding: 1rem 1rem 0.75rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .modal-description {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
     }
     
     .gallery-filters {
@@ -2282,7 +2887,109 @@ p {
     }
     
     .pricing-package {
-        padding: 1.25rem;
+        padding: 0.75rem;
+    }
+    
+    .pricing-packages.starlight-packages {
+        gap: 0.5rem;
+        justify-items: center;
+    }
+    
+    .pricing-packages.ambient-packages {
+        gap: 0.875rem;
+    }
+    
+    .pricing-package.popular {
+        padding-top: 1.25rem;
+    }
+    
+    .pricing-package.popular .package-tier-badge {
+        top: 0.5rem;
+    }
+    
+    .popular-badge {
+        display: none;
+    }
+    
+    .pricing-package.popular {
+        padding-top: 0.75rem;
+    }
+    
+    .package-title {
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+    }
+    
+    .current-price {
+        font-size: 1.25rem;
+    }
+    
+    .package-price {
+        margin-bottom: 0.75rem;
+    }
+    
+    .package-features {
+        margin-bottom: 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    .package-features li {
+        font-size: 0.75rem;
+        margin-bottom: 0.375rem;
+    }
+    
+    .package-button {
+        padding: 0.5rem;
+        font-size: 0.6875rem;
+    }
+    
+    .shooting-stars-section {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    
+    .shooting-stars-title {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .shooting-stars-description {
+        font-size: 0.8125rem;
+        margin-bottom: 1rem;
+    }
+    
+    .shooting-star-option {
+        padding: 0.75rem;
+    }
+    
+    .shooting-star-icon {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .shooting-star-title {
+        font-size: 0.875rem;
+        margin-bottom: 0.375rem;
+    }
+    
+    .shooting-star-price {
+        font-size: 1.125rem;
+        margin-bottom: 0.375rem;
+    }
+    
+    .shooting-star-description {
+        font-size: 0.75rem;
+    }
+    
+    .popular-badge {
+        font-size: 0.625rem;
+        padding: 0.25rem 0.75rem;
+        top: -8px;
+    }
+    
+    .pricing-package.popular {
+        border-width: 1.5px;
     }
     
     .filter-btn {
