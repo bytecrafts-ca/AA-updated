@@ -1,4 +1,4 @@
-import { db } from "./firebase-client.js";
+import { db } from "/firebase-client.js";
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 function getByPath(obj, path) {
