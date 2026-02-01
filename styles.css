@@ -2068,6 +2068,80 @@ p {
     }
 }
 
+/* ===== Scroll Reveal Animations ===== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card scroll reveal - stagger handled via JS */
+.service-card:not(.visible),
+.project-card:not(.visible) {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card.visible,
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card.visible:hover,
+.project-card.visible:hover {
+  transform: translateY(-10px);
+}
+
+/* Gallery item scroll reveal */
+.gallery-item:not(.visible) {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero text reveal on load */
+.hero-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroReveal 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero-reveal:nth-child(1) { animation-delay: 0.1s; }
+.hero-reveal:nth-child(2) { animation-delay: 0.2s; }
+.hero-reveal:nth-child(3) { animation-delay: 0.35s; }
+.hero-reveal:nth-child(4) { animation-delay: 0.45s; }
+.hero-reveal:nth-child(5) { animation-delay: 0.55s; }
+.hero-reveal:nth-child(6) { animation-delay: 0.65s; }
+.hero-reveal:nth-child(7) { animation-delay: 0.75s; }
+.hero-reveal:nth-child(8) { animation-delay: 0.9s; }
+.hero-reveal:nth-child(9) { animation-delay: 1.05s; }
+.hero-reveal:nth-child(10) { animation-delay: 1.15s; }
+
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navbar scroll state */
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
 /* Featured Projects */
 .featured-projects {
     padding: var(--spacing-xl) 0;

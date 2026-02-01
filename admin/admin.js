@@ -45,8 +45,17 @@ async function loadIntoInputs() {
   });
 }
 
+function showToast(message, type = "success") {
+  const toast = document.getElementById("toast");
+  if (!toast) return;
+  toast.textContent = message;
+  toast.className = `admin-toast ${type} show`;
+  setTimeout(() => toast.classList.remove("show"), 2500);
+}
+
 async function saveFromInputs() {
   saveMsg.textContent = "Saving...";
+  saveMsg.className = "admin-status";
   const out = {};
 
   document.querySelectorAll("[data-bind]").forEach((input) => {
@@ -54,17 +63,26 @@ async function saveFromInputs() {
     setByPath(out, key, input.value.trim());
   });
 
-  // Merge keeps other fields you may add later
-  await setDoc(ref, out, { merge: true });
-  saveMsg.textContent = "Saved ✅";
+  try {
+    await setDoc(ref, out, { merge: true });
+    saveMsg.textContent = "Saved";
+    saveMsg.className = "admin-status success";
+    showToast("Pricing updated successfully", "success");
+  } catch (err) {
+    saveMsg.textContent = "Error: " + err.message;
+    saveMsg.className = "admin-status error";
+    showToast("Failed to save: " + err.message, "error");
+  }
 }
 
 loginBtn.addEventListener("click", async () => {
   loginMsg.textContent = "";
+  loginMsg.className = "admin-status";
   try {
     await signInWithEmailAndPassword(auth, email.value.trim(), password.value);
   } catch (e) {
     loginMsg.textContent = "Login failed: " + e.message;
+    loginMsg.className = "admin-status error";
   }
 });
 

@@ -69,21 +69,69 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Scroll animations
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+            // Staggered delay for grid children
+            const parent = entry.target.parentElement;
+            if (parent) {
+                const siblings = [...parent.children].filter(c => 
+                    c.matches('.service-card, .project-card, .gallery-item')
+                );
+                const idx = siblings.indexOf(entry.target);
+                if (idx >= 0) {
+                    entry.target.style.transitionDelay = `${idx * 0.08}s`;
+                }
+            }
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.querySelectorAll('.service-card, .project-card').forEach(el => {
-    observer.observe(el);
-});
+// Observe cards, gallery items, and section elements
+document.querySelectorAll('.service-card, .project-card, .gallery-item').forEach(el => observer.observe(el));
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+// Navbar scroll effect
+const navbar = document.querySelector('.navbar');
+if (navbar) {
+    const updateNavbar = () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 80);
+    };
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
+}
+
+// Counter animation for cert numbers
+function animateCounter(el, duration = 1500) {
+    const target = parseInt(el.dataset.count, 10) || 0;
+    const suffix = el.dataset.suffix || '';
+    const start = performance.now();
+
+    function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const current = Math.round(target * eased);
+        el.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+}
+
+const certObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+            entry.target.dataset.counted = 'true';
+            animateCounter(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.cert-number[data-count]').forEach(el => certObserver.observe(el));
 
 // Parallax effect for hero
 window.addEventListener('scroll', () => {
@@ -105,13 +153,6 @@ window.addEventListener('resize', () => {
     }
 });
 
-// Add fade-in animation to cards on load
-window.addEventListener('load', () => {
-    const cards = document.querySelectorAll('.service-card, .project-card');
-    cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-    });
-});
 
 // Modal functionality
 const modalTriggers = document.querySelectorAll('.modal-trigger');
