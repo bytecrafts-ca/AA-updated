@@ -44,7 +44,7 @@
         <section class="hero">
             <div class="hero-background">
                 <div class="hero-video">
-                    <div class="video-placeholder" style="background-image: url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2022'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+                    <div class="video-placeholder" style="background-image: url('photos/IMG_1486.JPG'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
                 </div>
                 <div class="hero-overlay"></div>
             </div>
@@ -473,17 +473,11 @@
                         A&A AutoMods specializes in high-end automotive customizations with a focus on lighting and interior transformations.
                     </p>
                     <div class="social-links">
-                        <a href="#" class="social-link">
+                        <a href="https://www.instagram.com/aa.automods/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="social-link">
+                        <a href="https://www.facebook.com/marketplace/profile/100008966918618/?red=permalink&mibextid=dXMIcH" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
@@ -514,15 +508,15 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>190 Creditstone Rd Units 2&3<br>Vaughan, ON L4K 1R9<br>Canada</span>
+                            <a href="https://www.google.com/maps/search/?api=1&query=27+Haas+Rd,+Etobicoke,+ON+M9W+3A1,+Canada" target="_blank" rel="noopener noreferrer" class="footer-contact-link">27 Haas Rd<br>Etobicoke, ON M9W 3A1<br>Canada</a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>(647) 677-7287</span>
+                            <a href="tel:+16476777287" class="footer-contact-link">(647) 677-7287</a>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>Anthony.aalighting@gmail.com</span>
+                            <a href="mailto:Anthony.aalighting@gmail.com" class="footer-contact-link">Anthony.aalighting@gmail.com</a>
                         </div>
                     </div>
                 </div>
@@ -542,6 +536,9 @@
 
     <script src="/main.js"></script>
     <script>
+        // Gallery: set to true later to show a second page with demo items
+        const SHOW_DEMO_PAGE = false;
+
         // Gallery Pagination Configuration
         const ITEMS_PER_PAGE = 15;
         let currentPage = 1;
@@ -564,16 +561,23 @@
 
         function getVisibleItems() {
             return Array.from(galleryItems).filter(item => {
-                if (currentFilter === 'all') {
-                    return true;
-                }
+                if (currentFilter === 'all') return true;
                 return item.getAttribute('data-category') === currentFilter;
             });
         }
 
+        function getMainPageItems() {
+            return getVisibleItems().filter(item => !item.classList.contains('demo-item'));
+        }
+
+        function getDemoPageItems() {
+            return getVisibleItems().filter(item => item.classList.contains('demo-item'));
+        }
+
         function getTotalPages() {
-            const visibleItems = getVisibleItems();
-            return Math.max(1, Math.ceil(visibleItems.length / ITEMS_PER_PAGE));
+            if (!SHOW_DEMO_PAGE) return 1;
+            const demoItems = getDemoPageItems();
+            return getMainPageItems().length > 0 && demoItems.length > 0 ? 2 : 1;
         }
 
         function updatePagination() {
@@ -698,19 +702,19 @@
         }
 
         function displayCurrentPage() {
-            const visibleItems = getVisibleItems();
-            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-            const endIndex = startIndex + ITEMS_PER_PAGE;
-            
+            const totalPages = getTotalPages();
+            const pageItems = totalPages === 2 && currentPage === 2
+                ? getDemoPageItems()
+                : getMainPageItems();
+
             // Hide all items first
             galleryItems.forEach(item => {
                 item.style.display = 'none';
                 item.style.opacity = '0';
                 item.style.transform = 'scale(0.95)';
             });
-            
-            // Show items for current page with staggered animation
-            const pageItems = visibleItems.slice(startIndex, endIndex);
+
+            // Show items for current page with staggered animation (same card size)
             pageItems.forEach((item, index) => {
                 setTimeout(() => {
                     item.style.display = 'block';
@@ -754,6 +758,7 @@
                     }
                 }, 200);
             });
+
         });
 
         if (prevBtn) {
@@ -791,8 +796,9 @@
         let visibleImages = [];
 
         function updateVisibleImages() {
-            // Get all visible items based on current filter (all pages, not just current)
-            const visibleItems = getVisibleItems();
+            // Use current page items only (main page = no demos; page 2 = demos when SHOW_DEMO_PAGE)
+            const totalPages = getTotalPages();
+            const visibleItems = (totalPages === 2 && currentPage === 2) ? getDemoPageItems() : getMainPageItems();
             visibleImages = visibleItems.map(item => {
                 const img = item.querySelector('img');
                 return {
