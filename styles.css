@@ -1297,6 +1297,17 @@ p {
     color: var(--accent-hover);
 }
 
+/* Service card with no image (gradient background only) */
+.service-card--no-image .service-no-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    background: linear-gradient(165deg, rgba(20, 28, 45, 0.97) 0%, rgba(15, 22, 36, 0.98) 50%, rgba(10, 16, 28, 0.99) 100%);
+}
+
 /* Make last service card wider to fill gap on larger screens */
 @media (min-width: 1200px) {
     #emergency-lighting {
@@ -3136,4 +3147,89 @@ p {
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+/* Legal pages - Privacy Policy & Terms of Service */
+.hero--legal {
+    min-height: 40vh;
+    height: auto;
+    padding: 8rem 0 4rem;
+    background: var(--dark-gray);
+}
+
+.hero--legal .hero-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, var(--dark-gray) 100%);
+}
+
+.hero-content--centered {
+    text-align: center;
+    max-width: 36rem;
+    margin: 0 auto;
+}
+
+.hero-title--legal {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero-description--legal {
+    font-size: 0.9375rem;
+    color: var(--text-tertiary);
+}
+
+.legal-section {
+    padding: var(--spacing-lg) 0 var(--spacing-xl);
+    background: var(--black);
+}
+
+.legal-content {
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+.legal-content .legal-intro {
+    font-size: 1.0625rem;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.legal-content h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.legal-content p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+}
+
+.legal-content a {
+    color: var(--accent-primary);
+    text-decoration: none;
+}
+
+.legal-content a:hover,
+.legal-content a:focus {
+    text-decoration: underline;
+}
+
+.legal-content a:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+.legal-back {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.legal-back .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
 }
