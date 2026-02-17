@@ -237,22 +237,26 @@
                                 <input type="text" id="vehicle" name="vehicle" required placeholder="Year, Make, Model (e.g., 2023 Porsche 911)">
                             </div>
 
-                            <div class="form-group">
-                                <label for="service">Service Interested In *</label>
-                                <select id="service" name="service" required>
-                                    <option value="">Select a service</option>
-                                    <option value="star-headliner">Star Headliner</option>
-                                    <option value="ambient-lighting">Ambient Lighting</option>
-                                    <option value="underglow">Underglow</option>
-                                    <option value="emergency-lighting">Emergency Lighting</option>
-                                    <option value="remote-starter">Remote Starter</option>
-                                    <option value="backup-camera">Backup Camera</option>
-                                    <option value="dash-camera">Dash Camera</option>
-                                    <option value="infotainment-system">Infotainment System</option>
-                                    <option value="detailing">Detailing</option>
-                                    <option value="consultation">General Consultation</option>
-                                    <option value="other">Other</option>
-                                </select>
+                            <div class="form-group service-select-wrap" id="service-select-wrap">
+                                <label>Services *</label>
+                                <button type="button" class="service-trigger" id="service-trigger" aria-expanded="false" aria-haspopup="listbox" aria-label="Choose services">
+                                    <span class="service-trigger-text">Select services</span>
+                                    <span class="service-trigger-icon" aria-hidden="true"></span>
+                                </button>
+                                <div class="service-dropdown" id="service-dropdown" role="listbox" aria-multiselectable="true" hidden>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Star Headliner"> Star Headliner</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Ambient Lighting"> Ambient Lighting</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Underglow"> Underglow</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Emergency Lighting"> Emergency Lighting</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Remote Starter"> Remote Starter</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Backup Camera"> Backup Camera</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Dash Camera"> Dash Camera</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Infotainment System"> Infotainment</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Detailing"> Detailing</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="General Consultation"> Consultation</label>
+                                    <label class="service-opt"><input type="checkbox" name="service" value="Other"> Other</label>
+                                </div>
+                                <span class="service-error" id="service-error" role="alert"></span>
                             </div>
 
                             <div class="form-group full-width">
@@ -623,6 +627,112 @@
             color: var(--text-secondary);
         }
 
+        .service-select-wrap {
+            position: relative;
+        }
+
+        .service-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--dark-gray);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-family: var(--font-primary);
+            cursor: pointer;
+            transition: var(--transition-base);
+            text-align: left;
+        }
+
+        .service-trigger:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .service-select-wrap.open .service-trigger {
+            border-color: var(--accent-primary);
+        }
+
+        .service-trigger-text.has-selection {
+            color: var(--text-primary);
+        }
+
+        .service-trigger-icon {
+            width: 0.4rem;
+            height: 0.4rem;
+            border-right: 1.5px solid currentColor;
+            border-bottom: 1.5px solid currentColor;
+            transform: rotate(45deg);
+            margin-left: 0.5rem;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .service-select-wrap.open .service-trigger-icon {
+            transform: rotate(-135deg);
+        }
+
+        .service-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 2px;
+            background: var(--dark-gray);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 0.5rem;
+            max-height: 220px;
+            overflow-y: auto;
+            z-index: 10;
+            display: none;
+        }
+
+        .service-select-wrap.open .service-dropdown {
+            display: block;
+        }
+
+        .service-dropdown[hidden] {
+            display: none !important;
+        }
+
+        .service-opt {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.5rem;
+            margin: 0;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .service-opt:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .service-opt input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin: 0;
+            accent-color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
+        .service-error {
+            font-size: 0.8125rem;
+            color: #e74c3c;
+            margin-top: 0.375rem;
+            min-height: 1.25em;
+            display: block;
+        }
+
         .form-success-banner {
             background: rgba(58, 134, 255, 0.15);
             border: 1px solid rgba(58, 134, 255, 0.4);
@@ -806,8 +916,63 @@
             const form = document.querySelector('.contact-form');
             if (!form) return;
 
+            var wrap = document.getElementById('service-select-wrap');
+            var trigger = document.getElementById('service-trigger');
+            var dropdown = document.getElementById('service-dropdown');
+            var triggerText = trigger && trigger.querySelector('.service-trigger-text');
+            var serviceError = document.getElementById('service-error');
+
+            function updateTriggerText() {
+                if (!triggerText) return;
+                var checked = form.querySelectorAll('input[name="service"]:checked');
+                if (checked.length === 0) {
+                    triggerText.textContent = 'Select services';
+                    triggerText.classList.remove('has-selection');
+                } else if (checked.length === 1) {
+                    triggerText.textContent = checked[0].value;
+                    triggerText.classList.add('has-selection');
+                } else {
+                    triggerText.textContent = checked.length + ' selected';
+                    triggerText.classList.add('has-selection');
+                }
+            }
+
+            if (trigger && wrap && dropdown) {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var isOpen = wrap.classList.toggle('open');
+                    trigger.setAttribute('aria-expanded', isOpen);
+                    dropdown.hidden = !isOpen;
+                });
+                document.addEventListener('click', function(e) {
+                    if (!wrap.contains(e.target)) {
+                        wrap.classList.remove('open');
+                        trigger.setAttribute('aria-expanded', 'false');
+                        dropdown.hidden = true;
+                    }
+                });
+                form.querySelectorAll('input[name="service"]').forEach(function(cb) {
+                    cb.addEventListener('change', function() {
+                        updateTriggerText();
+                        if (serviceError && form.querySelectorAll('input[name="service"]:checked').length > 0)
+                            serviceError.textContent = '';
+                    });
+                });
+            }
+
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
+
+                var checked = form.querySelectorAll('input[name="service"]:checked');
+                if (checked.length === 0) {
+                    if (serviceError) serviceError.textContent = 'Select at least one service.';
+                    wrap.classList.add('open');
+                    dropdown.hidden = false;
+                    trigger.setAttribute('aria-expanded', 'true');
+                    trigger.focus();
+                    return;
+                }
+                if (serviceError) serviceError.textContent = '';
 
                 const submitBtn = this.querySelector('.submit-btn');
                 const span = submitBtn?.querySelector('span');
@@ -826,9 +991,15 @@
                 const data = {};
                 formData.forEach((value, key) => {
                     if (!key.startsWith('_') || key === '_subject' || key === '_captcha' || key === '_template') {
-                        data[key] = value;
+                        if (key === 'service') {
+                            if (!data[key]) data[key] = [];
+                            data[key].push(value);
+                        } else {
+                            data[key] = value;
+                        }
                     }
                 });
+                if (Array.isArray(data.service)) data.service = data.service.join(', ');
 
                 try {
                     const res = await fetch('https://formsubmit.co/ajax/Anthony.aalighting@gmail.com', {
@@ -846,6 +1017,12 @@
                         banner.innerHTML = '<i class="fas fa-check-circle"></i> Congrats, it went through! We\'ll get back to you shortly.';
                         form.insertBefore(banner, form.firstChild);
                         this.reset();
+                        if (wrap) {
+                            wrap.classList.remove('open');
+                            if (trigger) trigger.setAttribute('aria-expanded', 'false');
+                            if (dropdown) dropdown.hidden = true;
+                            updateTriggerText();
+                        }
                     } else {
                         throw new Error('Submission failed');
                     }
