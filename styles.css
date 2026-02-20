@@ -245,15 +245,15 @@ p {
     display: none;
 }
 
-/* Hero Section */
+/* Hero Section - 70vh, minimal text */
 .hero {
-    height: 100vh;
-    min-height: 100vh;
+    height: 70vh;
+    min-height: 70vh;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 140px 0 var(--spacing-lg);
+    padding: 120px 0 var(--spacing-md);
     overflow: hidden;
     z-index: 0;
 }
@@ -290,13 +290,11 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Gradient darkens content area (left) so hero text stays readable over bright image areas */
     background: linear-gradient(
-        105deg,
-        rgba(0, 0, 0, 0.55) 0%,
-        rgba(0, 0, 0, 0.35) 35%,
-        rgba(0, 0, 0, 0.15) 60%,
-        transparent 85%
+        110deg,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.08) 45%,
+        transparent 72%
     );
     z-index: -1;
 }
@@ -314,20 +312,11 @@ p {
 }
 
 .hero-content {
-    max-width: 700px;
+    max-width: 520px;
 }
 
 .hero-subtitle {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.92);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.35);
+    display: none;
 }
 
 .subtitle-line {
@@ -337,8 +326,11 @@ p {
 }
 
 .hero-title {
-    margin-bottom: 1.5rem;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.35);
+    margin-bottom: 0.5rem;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 .title-line {
@@ -346,12 +338,17 @@ p {
     overflow: hidden;
 }
 
+.hero-tagline {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: 0.5px;
+    margin-bottom: 1.25rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
 .hero-description {
-    font-size: 1.125rem;
-    max-width: 600px;
-    margin-bottom: 2rem;
-    color: #f0f6ff; /* High-contrast light blue-white on dark hero image; WCAG-friendly */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.35);
+    display: none;
 }
 
 .hero-actions {
@@ -509,6 +506,14 @@ p {
     background: var(--black);
     position: relative;
     z-index: 1;
+}
+
+.gallery-intro {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    text-align: center;
+    line-height: 1.45;
 }
 
 .gallery-filters {
@@ -1076,8 +1081,9 @@ p {
 }
 
 .section-description {
-    margin-bottom: 1.5rem;
-    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.45;
 }
 
 .link-arrow {
@@ -1266,11 +1272,12 @@ p {
 }
 
 .service-card > .service-description {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.45;
     flex-grow: 1;
     text-align: center;
-    line-height: 1.6;
     padding-left: var(--spacing-lg);
     padding-right: var(--spacing-lg);
 }
@@ -1297,7 +1304,7 @@ p {
     color: var(--accent-hover);
 }
 
-/* Service card with no image (gradient background only) */
+/* Service card with no image – neutral gradient to match other cards */
 .service-card--no-image .service-no-image {
     position: absolute;
     top: 0;
@@ -1305,7 +1312,7 @@ p {
     right: 0;
     bottom: 0;
     z-index: 0;
-    background: linear-gradient(165deg, rgba(20, 28, 45, 0.97) 0%, rgba(15, 22, 36, 0.98) 50%, rgba(10, 16, 28, 0.99) 100%);
+    background: linear-gradient(165deg, var(--light-gray) 0%, var(--medium-gray) 45%, var(--dark-gray) 100%);
 }
 
 /* Make last service card wider to fill gap on larger screens */
@@ -2319,8 +2326,10 @@ p {
 }
 
 .project-description {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: var(--text-secondary);
+    font-size: 0.8125rem;
+    line-height: 1.45;
     flex-grow: 1;
 }
 
@@ -2631,9 +2640,9 @@ p {
     
     .hero {
         padding-top: 80px;
-        min-height: auto;
-        height: auto;
-        padding-bottom: 3rem;
+        min-height: 70vh;
+        height: 70vh;
+        padding-bottom: var(--spacing-md);
     }
     
     .hero-certifications {
@@ -2677,7 +2686,20 @@ p {
     }
     
     .section-description {
-        font-size: 0.9375rem;
+        font-size: 0.8125rem;
+    }
+    
+    .header-right .section-description {
+        display: none;
+    }
+    
+    .hero-tagline {
+        font-size: 0.8125rem;
+    }
+    
+    .gallery-intro {
+        font-size: 0.8125rem;
+        margin-bottom: 1rem;
     }
     
     .services-grid,
@@ -3004,7 +3026,9 @@ p {
     
     .hero {
         padding-top: 70px;
-        padding-bottom: 2.5rem;
+        min-height: 70vh;
+        height: 70vh;
+        padding-bottom: var(--spacing-md);
     }
     
     .hero-title {
