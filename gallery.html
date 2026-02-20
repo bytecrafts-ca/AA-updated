@@ -136,7 +136,6 @@
                             <img src="photos/ambient-3.avif" alt="BMW M4 Ceramic Coating">
                             <div class="gallery-overlay">
                                 <div class="gallery-info">
-                                    <h3 class="gallery-title">BMW M4 Competition</h3>
                                     <p class="gallery-tag">Ambient Lighting</p>
                                 </div>
                                 <button class="gallery-expand" aria-label="Expand image">
@@ -340,113 +339,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Demo Images -->
-                    <div class="gallery-item demo-item" data-category="ambient-lighting">
-                        <div class="gallery-image">
-                            <div class="demo-placeholder">DEMO</div>
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <h3 class="gallery-title"></h3>
-                                    <p class="gallery-tag">Ambient Lighting</p>
-                                </div>
-                                <button class="gallery-expand" aria-label="Expand image">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item demo-item" data-category="ambient-lighting">
-                        <div class="gallery-image">
-                            <div class="demo-placeholder">DEMO</div>
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <h3 class="gallery-title"></h3>
-                                    <p class="gallery-tag">Ambient Lighting</p>
-                                </div>
-                                <button class="gallery-expand" aria-label="Expand image">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item demo-item" data-category="ambient-lighting">
-                        <div class="gallery-image">
-                            <div class="demo-placeholder">DEMO</div>
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <h3 class="gallery-title"></h3>
-                                    <p class="gallery-tag">Ambient Lighting</p>
-                                </div>
-                                <button class="gallery-expand" aria-label="Expand image">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item demo-item" data-category="star-headliner">
-                        <div class="gallery-image">
-                            <div class="demo-placeholder">DEMO</div>
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <h3 class="gallery-title"></h3>
-                                    <p class="gallery-tag">Star Headliner</p>
-                                </div>
-                                <button class="gallery-expand" aria-label="Expand image">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item demo-item" data-category="star-headliner">
-                        <div class="gallery-image">
-                            <div class="demo-placeholder">DEMO</div>
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <h3 class="gallery-title"></h3>
-                                    <p class="gallery-tag">Star Headliner</p>
-                                </div>
-                                <button class="gallery-expand" aria-label="Expand image">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item demo-item" data-category="underglow">
-                        <div class="gallery-image">
-                            <div class="demo-placeholder">DEMO</div>
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <h3 class="gallery-title"></h3>
-                                    <p class="gallery-tag">Underglow</p>
-                                </div>
-                                <button class="gallery-expand" aria-label="Expand image">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gallery-item demo-item" data-category="underglow">
-                        <div class="gallery-image">
-                            <div class="demo-placeholder">DEMO</div>
-                            <div class="gallery-overlay">
-                                <div class="gallery-info">
-                                    <h3 class="gallery-title"></h3>
-                                    <p class="gallery-tag">Underglow</p>
-                                </div>
-                                <button class="gallery-expand" aria-label="Expand image">
-                                    <i class="fas fa-expand"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 
                 <!-- Pagination -->
                 <div class="pagination-wrapper">
@@ -830,16 +722,17 @@
         let visibleImages = [];
 
         function updateVisibleImages() {
-            // Use current page items only (main page = no demos; page 2 = demos when SHOW_DEMO_PAGE)
-            const totalPages = getTotalPages();
-            const visibleItems = (totalPages === 2 && currentPage === 2) ? getDemoPageItems() : getMainPageItems();
+            // Use same list as click handler so index always matches (getVisibleItems = filtered items)
+            const visibleItems = getVisibleItems();
             visibleImages = visibleItems.map(item => {
                 const img = item.querySelector('img');
+                const titleEl = item.querySelector('.gallery-title');
+                const tagEl = item.querySelector('.gallery-tag');
                 return {
-                    img: img ? img.src : '',
+                    img: img ? (img.getAttribute('src') || img.src) : '',
                     isDemo: item.classList.contains('demo-item'),
-                    title: item.querySelector('.gallery-title').textContent,
-                    tag: item.querySelector('.gallery-tag').textContent
+                    title: titleEl ? titleEl.textContent : '',
+                    tag: tagEl ? tagEl.textContent : ''
                 };
             });
         }
