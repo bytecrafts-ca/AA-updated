@@ -154,29 +154,12 @@ p {
     font-size: 0.875rem;
     font-weight: 500;
     transition: var(--transition-base);
-    position: relative;
     padding: 0.5rem 0;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent-primary);
-    transition: width 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: var(--text-primary);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
 }
 
 .nav-number {
@@ -1080,32 +1063,78 @@ p {
     background: var(--accent-primary);
 }
 
+.section-subtitle {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
 .section-description {
     margin-bottom: 1rem;
     font-size: 0.875rem;
     line-height: 1.45;
 }
 
-.link-arrow {
+.section-description-short {
+    display: none;
+}
+}
+
+a.link-arrow,
+a.link-arrow:link,
+a.link-arrow:visited,
+a.link-arrow:hover,
+a.link-arrow:focus,
+a.link-arrow:active {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--accent-primary);
-    text-decoration: none;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: var(--transition-base);
 }
 
-.link-arrow:hover {
-    gap: 1rem;
+a.link-arrow span,
+a.link-arrow i {
+    color: #FFFFFF !important;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: var(--spacing-md);
+}
+
+/* Home page featured services: 2×2 on desktop */
+.services-grid--featured {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.services-preview-more {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.services-preview-more a {
+    color: var(--accent-primary);
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 0.25rem;
+    transition: var(--transition-base);
+}
+
+.services-preview-more a:hover {
+    text-decoration: underline;
 }
 
 .service-card {
@@ -1245,8 +1274,6 @@ p {
 
 .service-content .service-link:hover {
     gap: 1rem;
-    color: var(--accent-hover);
-    text-shadow: 0 2px 8px rgba(58, 134, 255, 0.5);
 }
 
 /* Simple service card styles (for index.html - cards without .service-content) */
@@ -1301,7 +1328,6 @@ p {
 
 .service-card > .service-link:hover {
     gap: 1rem;
-    color: var(--accent-hover);
 }
 
 /* Service card with no image – neutral gradient to match other cards */
@@ -1317,7 +1343,7 @@ p {
 
 /* Make last service card wider to fill gap on larger screens */
 @media (min-width: 1200px) {
-    #emergency-lighting {
+    #service-lighting {
         grid-column: span 3;
     }
 }
@@ -1336,6 +1362,11 @@ p {
     margin-top: var(--spacing-lg);
 }
 
+/* Last card spans 2 to fill row when odd number of items */
+.small-service-card--span-2 {
+    grid-column: span 2;
+}
+
 .small-service-card {
     background: var(--medium-gray);
     padding: var(--spacing-md);
@@ -1346,11 +1377,6 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.small-service-card:hover {
-    border-color: var(--accent-primary);
-    transform: translateY(-5px);
 }
 
 .small-service-icon {
@@ -1374,22 +1400,32 @@ p {
     flex-grow: 1;
 }
 
-.small-service-link {
-    display: inline-block;
-    background: var(--accent-primary);
-    color: var(--text-primary);
-    padding: 0.625rem 1.25rem;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 600;
-    transition: var(--transition-base);
-    margin-top: auto;
+.small-service-desc-short {
+    display: none;
+}
 }
 
-.small-service-link:hover {
-    background: var(--accent-hover);
-    transform: translateY(-2px);
+a.small-service-link,
+a.small-service-link:link,
+a.small-service-link:visited,
+a.small-service-link:hover,
+a.small-service-link:focus,
+a.small-service-link:active {
+    display: inline-block;
+    background: var(--accent-primary);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    padding: 0.625rem 1.25rem;
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: auto;
+    outline: none;
+}
+
+a.small-service-link:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
 }
 
 /* Pricing Modals */
@@ -2621,10 +2657,6 @@ p {
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     
-    .nav-link::after {
-        display: none;
-    }
-    
     .nav-cta {
         width: 100%;
         margin-top: 1.5rem;
@@ -2745,12 +2777,32 @@ p {
     }
     
     .small-services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+    }
+    
+    .small-service-card--span-2 {
+        grid-column: span 2;
     }
     
     .small-service-card {
         padding: 1.5rem;
+    }
+    
+    .additional-services .section-description-long {
+        display: none;
+    }
+    
+    .additional-services .section-description-short {
+        display: inline;
+    }
+    
+    .small-service-desc-long {
+        display: none;
+    }
+    
+    .small-service-desc-short {
+        display: inline;
     }
     
     .pricing-packages:not(.starlight-packages) {
@@ -2851,7 +2903,7 @@ p {
         font-size: 0.75rem;
     }
     
-    #emergency-lighting,
+    #service-lighting,
     .pricing-packages:not(.starlight-packages) .pricing-package:last-child {
         grid-column: span 1;
     }
@@ -3302,4 +3354,25 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+/* Force white on homepage section links – override browser default link color */
+main a.link-arrow:link,
+main a.link-arrow:visited,
+main a.link-arrow:hover,
+main a.link-arrow:focus,
+main a.link-arrow:active {
+    color: #FFFFFF !important;
+}
+main a.link-arrow span,
+main a.link-arrow i {
+    color: #FFFFFF !important;
+}
+
+a.small-service-link:link,
+a.small-service-link:visited,
+a.small-service-link:hover,
+a.small-service-link:focus,
+a.small-service-link:active {
+    color: #FFFFFF !important;
 }
