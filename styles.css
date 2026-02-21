@@ -1362,6 +1362,13 @@ a.link-arrow i {
     margin-top: var(--spacing-lg);
 }
 
+/* Tablet and up: 4 columns so 8 cards = 2 even rows */
+@media (min-width: 768px) {
+    .small-services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 /* Last card spans 2 to fill row when odd number of items */
 .small-service-card--span-2 {
     grid-column: span 2;
